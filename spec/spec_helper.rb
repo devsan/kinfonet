@@ -52,11 +52,10 @@ Spork.prefork do
     #     --seed 1234
     config.order = "random"
     config.include Capybara::DSL
-
+   end
 end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-
-end
+  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
 end

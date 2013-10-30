@@ -5,5 +5,35 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    /[if lt IE 9]
+      %script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+      = javascript_include_tag "respond.js"
   %body
-    = yield
+    %header.nav-bar.navbar-inverse.navbar-fixed-top.kinfonet-nav{role: "banner"}<
+      %nav.container
+        .brand
+          =link_to "Kinfonet", "#"
+        %ul.nav.navbar-nav.span
+          %li.active<
+            =link_to "Krishnamurti", "#"
+          %li<
+            =link_to "Forums", "#"
+          %li<
+            =link_to "Articles", "#"
+          %li<
+            =link_to "People", "#"
+          %li<
+            =link_to "Events", "#"
+          %li<
+            =link_to "Places", "#"
+          %li<
+            =link_to "Projects", "#"
+          %li<
+            =link_to "Classifieds", "#"
+          %li.sign-up<
+            =link_to "Sign up", class: "sign-up-link"
+          %li.sign-in<
+            =link_to "Sign in", class: "sign-in-link"
+       
+    .container
+      = yield

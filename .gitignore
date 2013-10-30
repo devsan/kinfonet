@@ -8,7 +8,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/app/stylesheets/old
+app/assets/stylesheets/old/
 
 # Ignore other unneeded files.
 database.yml

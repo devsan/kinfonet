@@ -1,0 +1,145 @@
+/*
+ * Kinfonet Documentation
+ * Special styles for Kinfonet sections.
+ *
+ * Table of contents:
+ *
+ * Scaffolding
+ * Main navigation
+ * Footer
+ * Social buttons
+ * Homepage
+ * Page headers
+ * Old docs callout
+ * Ads
+ * Side navigation
+ * Docs sections
+ * Callouts
+ * Grid styles
+ * Examples
+ * Code snippets (highlight)
+ * Responsive tests
+ * Glyphicons
+ * Customizer
+ * Miscellaneous
+ */
+
+
+// links
+// ====================================================================
+
+/*
+ * Main navigation
+ *
+ * Turn the `.navbar` at the top brown.
+ */
+
+.kinfonet-nav {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+  background-color: $color14;
+  border-color: darken($color14, 5%);
+  box-shadow: 0 1px 0 rgba($color11,.1);
+  //min-height: 55px;
+ 
+  .brand {
+   position: absolute;
+    a {
+    display: block;
+    color: $color3a;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 4px 8px; 
+    }
+  }
+  nav {
+    position: relative;
+  }
+
+  ul.nav{
+    margin: 0 0 0 120px;
+    float: none;
+    overflow: hidden;
+  }
+  .navbar-nav > li {
+  float: left;
+  }
+  .navbar-nav > li > a {
+     color: lighten($color3a, 6%);
+     padding: 4px 8px;
+     line-height: 20px;
+  }
+  .navbar-nav > li > a:hover {
+    color: darken($color3a, 8%);
+  }
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover {
+    color: lighten($color3, 10%);
+    background-color: darken($color14, 3%);
+  }
+}
+
+
+
+
+
+
+
+
+
+// .kin-nav {
+  //FEFB9C
+//   background: darken(#CC0033, 5%);
+//   border-color: #A90D0D;
+//   text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+//   box-shadow: 0 1px 0 rgba(255,255,255,.9);
+// }
+
+// .kin-text-logo {
+//   float: left;
+//   margin: 10px 10px  10px 0;
+// }
+
+// ul.nav {
+//   overflow: hidden;
+//   li {
+//     float:left; } }
+
+// ul.nav li > a {
+//   color: lighten(#e57f99, 13.5%);
+//   padding: 8px 8px;
+//   &:hover {
+//     color: #ffffff;
+//     background: #CC0033;
+//   }
+// }
+
+// ul.nav > .active > a {
+//   color: #ffffff;
+// }
+
+
+// .make-column(8);
+
+// .navbar-header {
+//   a.kin-logo {
+//     padding: 0 0 15px;
+//   }
+// }
+
+// .kin-nav ul.nav {
+//   float:left;
+//   li {
+//     float: left;
+//   }
+// }
+
+// .kin-nav .navbar-nav > li > a {
+//     color: lighten(#FF8073, 13.5%);
+//     &:hover {
+//       color: #ffffff;
+//     }
+// }
+// .kin-nav .navbar-nav > .active > a {
+//     color: #ffffff;
+//     background: none;
+// }

@@ -1,0 +1,57 @@
+//@media queries
+/* Small devices (tablets, 768px and up) */
+// @media (min-width: $screen-tablet) {
+//   .container {
+//     max-width: $container-tablet;
+//   }
+ //$container-tablet: 750px;
+
+/* Medium devices (desktops, 992px and up) */
+// @media (min-width: $screen-desktop) {
+//   .container {
+//     max-width: $container-desktop;
+//   }
+//$container-desktop: 970px;
+
+/* Large devices (large desktops, 1200px and up) */
+// @media (min-width: $screen-lg-desktop) {
+//   .container {
+//     max-width: $container-lg-desktop;
+//   }
+//$container-large-desktop: 1140px + $grid-gutter-width;
+
+//$grid-gutter-width  : 3rem;
+// $screen-tablet: 800px;
+// $container-tablet: 960px;
+// $container-desktop: 1200px;
+// $container-lg-desktop: 1200px;
+//$grid-padding   : $gutter-width;  // grid-padding equal to gutters
+
+/* Colors
+----------------------------------------- */
+$color1: #FF0000; // Red
+$color2: #FFBF00; // Orange
+$color3: #FFFF00; // Yellow
+$color3a: #FEFB9C; // Yellow
+$color4: #7FFF00; // Green
+$color5: #007FFF; // Light Blue
+$color6: #00FFFF; // Cyan
+$color7: #0000FF; // Blue
+$color8: #7F00FF; // Purple
+$color9: #FF00FF; // Magenta
+$color10: #000; // Black
+$color11: #FFF; // White
+$color12: #451508; // Reddish Brown
+$color13: #210A04; // Dark Brown
+$color14: #962101; //orange-brown
+
+//background-color: lighten($color10, 93.5%); //#eee
+//border-top: 2px solid darken($color11, 13.5%); //#ddd
+
+
+/* Typography
+----------------------------------------- */
+$default-font-family: 'Open Sans', "Helvetica Neue",  Helvetica,  Arial,  sans-serif;
+
+// Load external fonts
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");

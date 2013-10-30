@@ -1,0 +1,32 @@
+//The @extend directive is used to extend another style. It allows any style to inherit the properties and values defined in another. 
+
+// Box 
+// .box {
+//      padding: 2em;
+//      color: $color10;
+//      background-color: $color11;
+//    }
+//    // Warning Box
+//    .warning-box {
+//      @extend .box;
+//      border: 2px dotted $color1;
+//    }
+
+// In situations where we want to define rules purely to extend them elsewhere, ie. they themselves are not used, we can use placeholder selectors.
+// like here if we never use the box style on its own we can use placeholder instead of extend
+// Box 
+// %box {
+//      padding: 2em;
+//      color: $color10;
+//      background-color: $color11;
+//    }
+//    // Warning Box
+//    .warning-box {
+//      @extend %box;
+//      border: 2px dotted $color1;
+//    }
+//this will generate leaner css, no box style is compiled, just warning-box
+
+%clearfix {
+  @include clearfix();
+}

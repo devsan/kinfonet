@@ -9,5 +9,23 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
+
+//variables
+@import "partials/config";
+
+//Vendor
+@import "bootstrap";
+
+@import "partials/placeholders";
+@import "partials/mixins";
+
+//bootstrap overrides
+@import "partials/base";
+
+//Site
+@import "partials/layout";
+@import "partials/custom";
+
+//propietary screen-width style
+@import "partials/responsive";

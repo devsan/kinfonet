@@ -3,7 +3,7 @@ Kinfonet4::Application.routes.draw do
  devise_for :users, :controllers => {:registrations => "registrations"}
  devise_scope :user do
    get "sign_up", :to => "devise/registrations#new"
-   get "log_out", :to => 'devise/sessions#destroy'
+   get "sign_out", :to => 'devise/sessions#destroy'
  end
  
  resources :users, only: [:index, :show]

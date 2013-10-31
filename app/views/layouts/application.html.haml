@@ -30,11 +30,17 @@
             =link_to "Projects", "#"
           %li<
             =link_to "Classifieds", "#"
-          %li.sign-up<
-            =link_to "Sign up", sign_up_path, class: "sign-up-link"
-          %li.sign-in<
-            =link_to "Sign in", class: "sign-in-link"
+          - unless user_signed_in?
+            %li.sign-up<
+              =link_to "Sign up", sign_up_path, class: "sign-up-link"
+            %li.sign-in<
+              =link_to "Sign in", class: "sign-in-link"
+          - else
+            %li.sign-in<
+              =link_to "Sign out", sign_out_path, class: "sign-out-link"
+
         %hr
        
     .container
+      = render :partial => 'shared/flash', :locals => {:flash => flash} 
       = yield

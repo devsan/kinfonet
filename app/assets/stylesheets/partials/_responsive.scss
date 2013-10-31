@@ -28,21 +28,25 @@
 
 @media (min-width: $screen-xs) {
   body {
-    padding-top: 50px;
+    padding-top: 20px;
   }
 }
 
 @media (min-width: $screen-md) {
   .kinfonet-nav .brand a {
-    padding: 15px 10px 15px 0;
+    padding: 10px 0 0 0;
+
+  }
+  .kinfonet-nav ul.nav {
+     margin-left: 140px;
   }
   ul.nav.navbar-nav li.sign-in, ul.nav.navbar-nav li.sign-up {
-    float: right
+    float: right;
   }
 
   ul.nav.navbar-nav > li > a {
-    line-height: 22px;
-    padding: 15px 10px;
+    line-height: 1;
+    padding: 22px 4px 4px 2px;
   }
 
 

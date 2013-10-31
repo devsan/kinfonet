@@ -10,7 +10,14 @@ Spork.prefork do
 
   # This file is copied to spec/ when you run 'rails generate rspec:install'
   ENV["RAILS_ENV"] ||= 'test'
+
+  #http://my.rails-royce.org/2012/01/14/reloading-models-in-rails-3-1-when-usign-spork-and-cache_classes-true/
+  require 'rails/application'
+
+  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
+  # Prevent main application to eager_load in the prefork block (do not load files in autoload_paths)
   require File.expand_path("../../config/environment", __FILE__)
+  
   require 'rspec/rails'
   require 'rspec/autorun'
 
@@ -57,5 +64,9 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
+  #Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
+  # This code will be run each time you run your specs.
+    Dir[Rails.root + "app/**/*.rb"].each do |file|
+      load file
+    end
 end

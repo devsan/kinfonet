@@ -1,6 +1,12 @@
 Kinfonet4::Application.routes.draw do
 
-  devise_for :users
+ devise_for :users, :controllers => {:registrations => "registrations"}
+ devise_scope :user do
+   get "sign_up", :to => "devise/registrations#new"
+   get "log_out", :to => 'devise/sessions#destroy'
+ end
+ 
+ resources :users, only: [:index, :show]
   #get "static_pages/home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -8,9 +14,6 @@ Kinfonet4::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
 
-  devise_scope :user do
-    get "sign_up", :to => "devise/registrations#new"
-  end
 
 
   # Example of regular route:

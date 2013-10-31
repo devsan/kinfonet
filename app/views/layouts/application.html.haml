@@ -9,10 +9,10 @@
       %script{src: "http://html5shim.googlecode.com/svn/trunk/html5.js"}
       = javascript_include_tag "respond.js"
   %body
-    %header.nav-bar.navbar-inverse.navbar-fixed-top.kinfonet-nav{role: "banner"}<
+    %header.nav-bar.kinfonet-nav{role: "banner"}<
       %nav.container
         .brand
-          =link_to "Kinfonet", "#"
+          =link_to "kinfonet.", root_path
         %ul.nav.navbar-nav.span
           %li.active<
             =link_to "Krishnamurti", "#"
@@ -31,9 +31,10 @@
           %li<
             =link_to "Classifieds", "#"
           %li.sign-up<
-            =link_to "Sign up", class: "sign-up-link"
+            =link_to "Sign up", sign_up_path, class: "sign-up-link"
           %li.sign-in<
             =link_to "Sign in", class: "sign-in-link"
+        %hr
        
     .container
       = yield

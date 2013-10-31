@@ -32,12 +32,12 @@
             =link_to "Classifieds", "#"
           - unless user_signed_in?
             %li.sign-up<
-              =link_to "Sign up", sign_up_path, class: "sign-up-link"
+              =link_to "Sign up", sign_up_path
             %li.sign-in<
-              =link_to "Sign in", class: "sign-in-link"
+              =link_to "Sign in", "#"
           - else
-            %li.sign-in<
-              =link_to "Sign out", sign_out_path, class: "sign-out-link"
+            %li.sign-out<
+              =link_to "Sign out", sign_out_path
 
         %hr
        

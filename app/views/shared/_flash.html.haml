@@ -1,5 +1,5 @@
 - flash.each do |type, message|
   %div.alert.alert-dismissable.fade.in{ "data-alert" => "alert", :class => twitterized_type(type) }
-    %btn.close{data: {dismiss: "alert", aria-hidden: "true"}}
+    %btn.close{data: {dismiss: "alert"}, :'aria-hidden' => "true"}
       ="&times;".html_safe
     = message

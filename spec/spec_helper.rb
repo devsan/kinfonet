@@ -48,6 +48,19 @@ Spork.prefork do
     # instead of true.
     config.use_transactional_fixtures = true
 
+    config.before(:each) do
+      DatabaseCleaner.strategy = if example.metadata[:js]
+        :truncation
+      else
+        :transaction
+      end
+      DatabaseCleaner.start
+    end
+    
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
+
     # If true, the base class of anonymous controllers will be inferred
     # automatically. This will be the default behavior in future versions of
     # rspec-rails.

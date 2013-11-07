@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string(255)      default(""), not null
+#  encrypted_password     :string(255)      default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
+#  created_at             :datetime
+#  updated_at             :datetime
+#  name                   :string(255)
+#
+
 require 'spec_helper'
 
 describe User do
@@ -9,6 +29,9 @@ describe User do
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
+
+  #associations
+  it {should respond_to(:classifieds)}
 
   it { should be_valid }
 
@@ -41,6 +64,26 @@ describe User do
         expect(@user).to be_valid
       end
     end
+  end
+
+  describe "classifieds association" do
+    before { @user.save  }
+    let!(:newer_classified) { FactoryGirl.create(:classified, user: @user, created_at: 1.hour.ago) }
+    let!(:older_classified) { FactoryGirl.create(:classified, user: @user, created_at: 1.day.ago) }
+    
+    it "should have classifeds ordered by created_at DESC " do
+      expect(@user.classifieds.to_a).to eq([newer_classified, older_classified])
+    end
+
+    it "should destroy associated classifeds" do
+      classifieds = @user.classifieds.to_a
+      @user.destroy
+      expect(classifieds).not_to be_empty
+      classifieds.each do |classified|
+        expect(Classified.where(id: classified.id)).to be_empty
+      end
+    end
+    
   end
 
 end

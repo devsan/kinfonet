@@ -1,0 +1,12 @@
+.row
+  .col-md-6
+    = form_for @classified do |f|
+      = render 'shared/error_messages', object: f.object
+      .form-group
+        = f.label :name
+        = f.text_field :name, :autofocus => true
+      .form-group
+        = f.label :content
+        = f.text_area :content
+
+      = f.submit submit_text, :class => "btn btn-lg btn-primary"

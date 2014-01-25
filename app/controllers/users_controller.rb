@@ -17,10 +17,11 @@ class UsersController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = "The user you were looking for could not be found."
     redirect_to users_path
+  end
   
   # Never trust parameters from the scary internet, only allow the white list through.
-  def recipe_params
+  def user_params
     params.require(:user).permit(:name)
-  end end
+  end
 
 end

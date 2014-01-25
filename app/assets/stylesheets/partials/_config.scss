@@ -1,3 +1,4 @@
+
 //@media queries
 /* Small devices (tablets, 768px and up) */
 // @media (min-width: $screen-tablet) {
@@ -27,6 +28,7 @@
 // $container-lg-desktop: 1200px;
 //$grid-padding   : $gutter-width;  // grid-padding equal to gutters
 
+
 /* Colors
 ----------------------------------------- */
 $color1: #FF0000; // Red
@@ -52,13 +54,35 @@ $color19: #E5A914; //flatui yellow
 
 $brand-primary: #74b73f;
 
+//http://colorschemedesigner.com/
+//reds
+$primary-color1: #E45353;
+$primary-color2: #905656;
+$primary-color3: #6F0B0B;
+$primary-color4: #FCA2A2;
+$primary-color5: #FCDBDB;
+//blues
+$secondary-color2: #43589a;
+
+
+/* Bootstrap variable overrides - 
+http://getbootstrap.com/customize/#variables-nav
+----------------------------------------- */
+
+//buttons
+$brand-primary: $secondary-color2;
+//nav
+$navbar-default-link-hover-color: $primary-color5;
+
 //background-color: lighten($color10, 93.5%); //#eee
 //border-top: 2px solid darken($color11, 13.5%); //#ddd
 
 
 /* Typography
 ----------------------------------------- */
-$default-font-family: 'Open Sans', "Helvetica Neue",  Helvetica,  Arial,  sans-serif;
+$default-font-family: 'Open Sans', 'Helvetica Neue',  Helvetica,  Arial,  sans-serif;
+$serif-font-family: 'Droid Serif', 'New Times Roman', Georgia, Times, serif;
 
 // Load external fonts
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic")

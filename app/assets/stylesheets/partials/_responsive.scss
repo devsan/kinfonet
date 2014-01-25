@@ -1,3 +1,11 @@
+//@media queries
+/* Small devices (tablets, 768px and up) */
+// @media (min-width: $screen-tablet) {
+//   .container {
+//     max-width: $container-tablet;
+//   }
+
+
 // Small grid
 //
 // Columns, offsets, pushes, and pulls for the small device range, from phones
@@ -26,28 +34,27 @@
 // $screen-lg:                  1200px !default;
 // $screen-lg-desktop:          $screen-lg !default;
 
-@media (min-width: $screen-xs) {
-  body {
-    padding-top: 20px;
-  }
-}
+// @media (min-width: $screen-xs) {
+//   body {
+//     padding-top: 20px;
+//   }
+// }
 
-@media (min-width: $screen-md) {
-  .kinfonet-nav .brand a {
-    padding: 10px 0 0 0;
+// @media (min-width: $screen-md) {
+//   .kinfonet-nav .brand a {
+//     padding: 10px 0 0 0;
 
-  }
-  .kinfonet-nav ul.nav {
-     margin-left: 140px;
-  }
-  ul.nav.navbar-nav li.sign-in, ul.nav.navbar-nav li.sign-up {
-    float: right;
-  }
+//   }
+//   .kinfonet-nav ul.nav {
+//      margin-left: 140px;
+//   }
+//   ul.nav.navbar-nav li.sign-in, ul.nav.navbar-nav li.sign-up {
+//     float: right;
+//   }
 
-  ul.nav.navbar-nav > li > a {
-    line-height: 1;
-    padding: 22px 4px 4px 2px;
-  }
+//   ul.nav.navbar-nav > li > a {
+//     line-height: 1;
+//     padding: 22px 4px 4px 2px;
+//   }
 
-
-}
+// }

@@ -1,0 +1,47 @@
+%header
+  .container
+    .row
+      .col-sm-2{style: "padding-right: 0; max-width: 140px;"}= link_to (image_tag "k-reading-left.png", class: "img-responsive", alt: "logo"), root_path, class: "hidden-xs"
+      .col-sm-8
+        %p.quote I am saying that there is a different way of life, a way that is not of self-expansion, in which there is ecstasy, but it has no validity if you merely accept my statement; such acceptance will become another form of egotistic activity.
+
+
+%nav.navbar-wrapper.navbar-default{role: "navigation"}
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      =link_to "Kinfonet", "#", class: "navbar-brand"
+    .collapse.navbar-collapse.navbar-ex1-collapse
+      %ul.nav.navbar-nav.navbar-right
+        / %li{:class => (controller_name == 'static_pages' && action_name == 'home') ? 'active' : ''}<
+        /   =link_to "#", class: "nav-link" do
+        /     %span.glyphicon.glyphicon-home
+        /     Home
+        %li<
+          =link_to "Krishnamurti", "#"
+        %li<
+          =link_to "Forums", "#"
+        %li<
+          =link_to "Articles", "#"
+        %li<
+          =link_to "People", "#"
+        %li<
+          =link_to "Events", "#"
+        %li<
+          =link_to "Places", "#"
+        %li<
+          =link_to "Projects", "#"
+        %li.last<
+          =link_to "Classifieds", "#", class: "last"
+        - unless user_signed_in?
+          %li.sign-up<
+            =link_to "Join Kinfonet", new_user_registration_path, class: "btn btn-sign-up"
+          %li.sign-in<
+            =link_to "Sign in", sign_in_path, class: "btn btn-sign-in"
+        - else
+          %li.sign-out<
+            =link_to "Sign out", sign_out_path, class: "btn signout-btn"

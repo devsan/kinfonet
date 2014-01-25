@@ -20,12 +20,8 @@
 @import "partials/placeholders";
 @import "partials/mixins";
 
-//bootstrap overrides
-@import "partials/base";
-
 //Site
-@import "partials/layout";
-@import "partials/custom";
+@import "partials/screen";
 
 //propietary screen-width style
 @import "partials/responsive";

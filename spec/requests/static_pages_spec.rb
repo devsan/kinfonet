@@ -4,6 +4,7 @@ describe "StaticPages" do
 
   describe "Home page" do
     it "should have the content 'Kinfonet'" do
+      #visit '/static_pages/home'
       visit root_path
       expect(page).to have_content('Kinfonet')
     end

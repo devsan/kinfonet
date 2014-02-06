@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   def show
 
   end
-  protected
-
+  
+  private
   def find_user
     @user = User.find(params[:id])
   rescue ActiveRecord::RecordNotFound

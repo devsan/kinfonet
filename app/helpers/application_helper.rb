@@ -11,19 +11,19 @@ module ApplicationHelper
   end
 
   #TODO check if bootstrap 3 still supports these
-  def twitterized_type(type)
-    case type
-      when :alert
-        "alert-danger"
-      when :error
-        "alert-danger"
-      when :notice
-        "alert-info"
-      when :success
-        "alert-success"
-      else
-        type.to_s
-    end
-  end
+  # def twitterized_type(type)
+  #   case type
+  #     when :alert
+  #       "alert-danger"
+  #     when :error
+  #       "alert-danger"
+  #     when :notice
+  #       "alert-info"
+  #     when :success
+  #       "alert-success"
+  #     else
+  #       type.to_s
+  #   end
+  # end
 
 end

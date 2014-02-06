@@ -1,12 +1,4 @@
 
-/* reset styles 
---------------------------------------------- */
-// ul,li {
-//     margin: 0;
-//     padding: 0;
-// }
-
-
 /* main styles
 --------------------------------------------- */
 body {
@@ -14,44 +6,72 @@ body {
   position: relative;
   color: #444;
   background: image-url("body-bg.png") repeat-x 0 0;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 /* links */
+a {
+  outline: none;
+  border: 0;
+}
+
+
+/* buttons*/
 
 /* header styles
 --------------------------------------------- */
 header {
-  padding: 15px 0;
-  p.quote {
-    font-family: $serif-font-family;
-    font-style: italic;
-    font-size: 14px;
-    color: #666666;
-    margin: 0;
-    padding:12px 25px 15px 25px;
-    background: image-url("blockquote-black.png") left top no-repeat, 
-                image-url("close-quotes.png") right bottom no-repeat;
-  }
-} 
+  h1.text-hide {
+    padding: 0;
+    margin: 0; }
+  .kn-blockquote {
+    margin: 0 0 5px;
+    clear: both;
+    background:  transparent image-url("q_left.png") 1% 15% no-repeat;
+    p {
+      color: #414141;
+      font-family: $serif-font-family;
+      line-height: 1.4;
+      padding: 10px 40px 5px;
+      background: transparent image-url("q_right.png") 99% 85% no-repeat; } }
+  .kn-blockquote + footer {
+    p span {
+      color: $muted-text; } }
+}
+
 
 /* nav styles
 --------------------------------------------- */
 
 .navbar-default {
   background-color: $primary-color1;
-  border-color: $primary-color3;
-  margin: 0 0 25px;
-}
-.navbar-default .navbar-brand {
-  color: #ffffff;
-}
-.navbar-default .navbar-nav > li > a {
-  color: #ffffff;
-  &.last {
-    padding-right: 50px;
+  .navbar-nav { width: 100%;
+    li a {
+      color: #ffffff; }
+   }
+  
+  .navbar-toggle{
+    padding: 5px 6px;
+    margin-top: 12px;
+    margin-bottom: 4px;
+   .icon-bar {
+    background: #ddd;
+    width: 22px;
+    height: 2px;
+  }}
+  
+  button.navbar-toggle-text {
+    color: #fff;
+    float: left;
+    border-color: darken($primary-color5, 50%);
+    margin: 10px 0 0 15px;
+    padding: 5px 15px 5px 15px;
+    border-color: $primary-color3;
+    background: #fff;
+    color: #777;
   }
 }
+
 .navbar-default .navbar-nav > li > a.btn-sign-in {
   margin: 10px 0 0 15px;
   padding: 5px 15px 5px 15px;
@@ -70,102 +90,30 @@ header {
     color: #777;
    }
 }
-// .kinfonet-nav {
-  //text-shadow: 0 -1px 0 rgba(0,0,0,.15);
-  //background-color: $color16;
-  //border-color: darken($color16, 5%);
-  //box-shadow: 0 1px 0 rgba($color11,.1);
-  //min-height: 55px;
- 
-//   .brand {
-//    position: absolute;
-//     a {
-//     display: block;
-//     color: #65AD14;
-//     font-size: 26px;
-//     line-height: 1;
-//     padding: 0; 
-//     letter-spacing: 0.5px;
-//     }
-//   }
-//   nav {
-//     position: relative;
-//   }
 
-//   ul.nav{
-//     margin: 0 0 0 120px;
-//     float: none;
-//     overflow: hidden;
-//   }
-//   .navbar-nav > li {
-//   float: left;
-//   padding: 0 15px 0 0;
-//   }
-//   .navbar-nav > li > a {
-//      color: #000;
-//      padding: 8px;
-//      line-height: 20px;
-//      text-transform: uppercase;
-//      font-size: 12px;
-//      font-weight: 600;
-//   }
-//   .navbar-nav > li > a:hover {
-//     color: $color11;
-//   }
-//   .navbar-nav > .active > a,
-//   .navbar-nav > .active > a:hover {
-//     color: #acde84;
-//     //background-color: darken($color16, 3%);
-//   }
-// }
 
 /*
  * Forms
  *
  */
 
- /* forms */
+/* form styles
+--------------------------------------------- */
 
-/* homepage */
+ .btn-submit {
+   @extend .btn-info;
+ }
 
-.jumbotron.excerpt {
-  background: #fef9eb;
-  padding: 20px 20px 5px 20px;
-  border: 1px solid darken(#faebbc, 5%);
-  line-height: 1.8;
-  h3{
-    margin: 0 0 10px;
-    line-height: 1;
-  }
-  p.source {
-    font-size: 14px;
-    color: #999;
-    padding: 0 0 0 10px;
-  }
-  blockquote.style1 {
-    padding: 10px 0;
-    border: 0;
-    font: 18px/28px italic Times, serif;
-    color: #666;
-    p {
-      padding: 0;
-      background-color: lighten(#faebbc, 10%);
-      margin: 0px;
-      background: image-url("openquote1.gif") no-repeat left -5px;
-      //background-position: 5px left;
-      //background-repeat: no-repeat;
-      padding-left: 28px;
-    }
-  }
-
+label {
+  display: block;
+  font-size: 90%;
 }
-
-
-input, textarea, select, .uneditable-input {
+input:not([type='submit']), textarea, select, .uneditable-input {
    border: 1px solid #bbb;
-   width: 100%;
+   width: 90%;
    margin-bottom: 15px;
    padding: 6px 12px;
+   outline: none;
  }
 
  input {
@@ -214,60 +162,22 @@ input, textarea, select, .uneditable-input {
    color: white;
  }
 
-// .kin-nav {
-  //FEFB9C
-//   background: darken(#CC0033, 5%);
-//   border-color: #A90D0D;
-//   text-shadow: 0 -1px 0 rgba(0,0,0,.15);
-//   box-shadow: 0 1px 0 rgba(255,255,255,.9);
-// }
+/* general styles
+--------------------------------------------- */
+.callout-info {
+  @extend %callout;
+  background-color: lighten($state-info-bg, 6%);
+  border-color: $brand-info;
+  h4 {
+    margin: 0 0 5px;
+    color: $brand-info;
+  } 
+}
 
-// .kin-text-logo {
-//   float: left;
-//   margin: 10px 10px  10px 0;
-// }
-
-// ul.nav {
-//   overflow: hidden;
-//   li {
-//     float:left; } }
-
-// ul.nav li > a {
-//   color: lighten(#e57f99, 13.5%);
-//   padding: 8px 8px;
-//   &:hover {
-//     color: #ffffff;
-//     background: #CC0033;
-//   }
-// }
-
-// ul.nav > .active > a {
-//   color: #ffffff;
-// }
-
-
-// .make-column(8);
-
-// .navbar-header {
-//   a.kin-logo {
-//     padding: 0 0 15px;
-//   }
-// }
-
-// .kin-nav ul.nav {
-//   float:left;
-//   li {
-//     float: left;
-//   }
-// }
-
-// .kin-nav .navbar-nav > li > a {
-//     color: lighten(#FF8073, 13.5%);
-//     &:hover {
-//       color: #ffffff;
-//     }
-// }
-// .kin-nav .navbar-nav > .active > a {
-//     color: #ffffff;
-//     background: none;
-// }
+.highlight {
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: $border-radius-base;
+}

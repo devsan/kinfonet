@@ -27,6 +27,11 @@
 //    }
 //this will generate leaner css, no box style is compiled, just warning-box
 
+%callout {
+margin: 0 0 20px;
+padding: 15px;
+border-left: 3px solid #eee;
+}
 
 %clearfix {
   @include clearfix();

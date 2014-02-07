@@ -12,7 +12,6 @@ module ApplicationHelper
 
   #TODO check if bootstrap 3 still supports these
   def twitterized_type(type)
-    raise type.inspect
     case type
       when :alert
         "alert-danger"

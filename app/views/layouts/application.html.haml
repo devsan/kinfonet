@@ -11,5 +11,5 @@
   %body{:id => "kin-#{controller_name}-#{action_name}", :class => "kin-#{controller_name}"}
     = render "layouts/header"   
     .container
-      = render :partial => 'shared/flash', :locals => {:flash => flash} 
+      = render :partial => 'layouts/flash', :locals => {:flash => flash} 
       = yield

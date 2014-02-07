@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :name, presence: true
-  validates :name, length: { maximum: 50 }
+  validates :fname, presence: true
+  validates :fname, length: { maximum: 50 }
+
+  def name
+    "#{fname} #{lname}".squish
+  end
 end

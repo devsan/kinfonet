@@ -1,5 +1,6 @@
+-raise
 - flash.each do |key, value|
-  %div.alert.alert-dismissable.fade.in{ "data-alert" => "alert", class: "alert-#{key}" }
+  %div.alert.alert-info.alert-dismissable.fade.in{ "data-alert" => "alert", class: "#{twitterized_type(key)}" }
     %btn.close{data: {dismiss: "alert"}, :'aria-hidden' => "true"}
       ="&times;".html_safe
     = value

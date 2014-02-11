@@ -4,8 +4,9 @@
 #
 #  id                 :integer          not null, primary key
 #  name               :string(255)
-#  description        :text
+#  content            :text
 #  user_id            :integer
+#  state              :integer          default(0)
 #  url                :string(255)
 #  image_file_name    :string(255)
 #  image_content_type :string(255)

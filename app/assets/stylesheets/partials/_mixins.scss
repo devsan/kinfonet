@@ -3,3 +3,10 @@
   -moz-box-sizing: $bs-type;
   box-sizing: $bs-type;
 }
+
+@mixin border-radius($_radius: 4px) {
+  @include border-top-radius($_radius);
+  @include  border-right-radius($_radius);
+  @include border-bottom-radius($_radius);
+  @include border-left-radius($_radius);
+}

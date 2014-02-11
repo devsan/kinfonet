@@ -28,6 +28,7 @@
 // $container-lg-desktop: 1200px;
 //$grid-padding   : $gutter-width;  // grid-padding equal to gutters
 
+//https://github.com/twbs/bootstrap-sass/blob/master/vendor/assets/stylesheets/bootstrap/_variables.scss
 
 /* Colors
 ----------------------------------------- */
@@ -51,9 +52,10 @@ $color16: #E53D2B; //flatui red
 $color17: #3DB346; //flatui green
 $color18: #18ABDF; //flatui blue
 $color19: #E5A914; //flatui yellow
+$kinfonet-purple: #e4ddf7;
 
 $brand-primary: #74b73f;
-
+//http://www.w3schools.com/tags/ref_color_tryit.asp?color=WhiteSmoke
 //http://colorschemedesigner.com/
 //reds
 $primary-color1: #E45353;
@@ -64,6 +66,9 @@ $primary-color5: #FCDBDB;
 //blues
 $secondary-color2: #43589a;
 //#4b97c7
+
+//grays
+$gray-lightest: #e8e8e5;
 
 //borders
 $gray-light-border: #dfdfdf;
@@ -88,8 +93,8 @@ $navbar-default-link-hover-color: $primary-color5;
 
 /* Typography
 ----------------------------------------- */
-$default-font-family: 'Open Sans', 'Helvetica Neue',  Helvetica,  Arial,  sans-serif;
-$serif-font-family: Georgia, 'Times New Roman', Times, serif;
+//$default-font-family: 'Open Sans', 'Helvetica Neue',  Helvetica,  Arial,  sans-serif;
+//$serif-font-family: Georgia, 'Times New Roman', Times, serif;
 
 // Load external fonts
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");

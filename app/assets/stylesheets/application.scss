@@ -16,11 +16,13 @@
 
 //Vendor
 @import "bootstrap";
+@import "bootstrap-datepicker";
 
 @import "partials/placeholders";
 @import "partials/mixins";
 
 //Site
+@import "partials/base";
 @import "partials/screen";
 
 //propietary screen-width style

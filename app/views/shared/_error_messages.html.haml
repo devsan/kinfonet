@@ -3,7 +3,7 @@
     %h4= "Whoops! Looks like there's a problem."
     %p
       The form contains #{pluralize(object.errors.count, "error")}.
-    %ul
+    %ul<
       - object.errors.full_messages.each do |msg|
-        %li
+        %li<
           = "* #{msg}"

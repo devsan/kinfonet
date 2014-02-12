@@ -15,18 +15,20 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
-#  name                   :string(255)
+#  fname                  :string(255)
+#  lname                  :string(255)
 #
 
 require 'spec_helper'
 
 describe User do
   before do
-    @user = User.new(name: "Andrea Singh", email: "andrea@example.com", password: "secret")
+    @user = User.new(fname: "Andrea", lname: "Singh", email: "andrea@example.com", password: "secret")
   end
   subject { @user }
   
-  it { should respond_to(:name) }
+  it { should respond_to(:fname) }
+  it { should respond_to(:lname) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
 

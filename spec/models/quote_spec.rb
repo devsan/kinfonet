@@ -22,7 +22,6 @@ describe Quote do
   let(:quote) { FactoryGirl.build(:quote) } 
   subject { quote }
 
-  #field attributes
   it { should respond_to(:phrase) }
   it { should respond_to(:content) }
   it { should respond_to(:display_date) }

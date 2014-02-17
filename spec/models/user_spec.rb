@@ -15,33 +15,45 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
-#  name                   :string(255)
+#  fname                  :string(255)
+#  lname                  :string(255)
+#  admin                  :boolean          default(FALSE)
 #
 
 require 'spec_helper'
 
 describe User do
   before do
-    @user = User.new(name: "Andrea Singh", email: "andrea@example.com", password: "secret")
+    @user = User.new(fname: "Andrea", lname: "Singh", email: "andrea@example.com", password: "secret")
   end
   subject { @user }
   
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
+  it { should respond_to(:admin) }
 
   #associations
   it {should respond_to(:classifieds)}
 
   it { should be_valid }
+  it { should_not be_admin }
 
-  describe "when name not present" do
-    before { @user.name = " " }
+  describe "with admin attribute set to 'true'" do
+    before do
+      @user.save!
+      @user.toggle!(:admin)
+    end
+    it { should be_admin }
+  end
+
+  describe "when first name not present" do
+    before { @user.fname = " " }
     it { should_not be_valid }
   end
 
-  describe "when name is too long" do
-    before { @user.name = "a" * 51 }
+  describe "when  first name is too long" do
+    before { @user.fname = "a" * 51 }
     it { should_not be_valid }
   end
 

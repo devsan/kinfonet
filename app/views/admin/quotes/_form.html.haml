@@ -1,0 +1,37 @@
+= form_for [:admin, @quote ] do |f|
+  = render 'shared/error_messages', object: f.object
+  .form-group
+    = f.label :phrase, "Highlighted Phrase"
+    = f.text_field :phrase, class: "form-control"
+  .form-group
+    .row
+      .col-xs-6
+        = f.label :source_location, "Source Location"
+        = f.text_field :source_location, class: "form-control"
+        %span.help Example: Ojai, CA
+      .col-xs-6
+        = f.label :source_detail, "Source Detail"
+        = f.text_field :source_detail, class: "form-control"
+        %span.help Example: 6th Public Talk, 1946
+  .form-group
+    .row
+      .col-xs-6
+        =f.label :source_date
+        = f.text_field :source_date, class: "form-control", placeholder: "eg. 10/29/1945 ", data: {behaviour: 'datepicker'}
+      .col-xs-6
+        =f.label :source_venue
+        = f.text_field :source_venue, class: "form-control", placeholder: "eg. Oak Grove"
+  .form-group
+    .row
+      .col-xs-6
+        =f.label :publication_name
+        = f.text_field :publication_name, class: "form-control", placeholder: "eg. Collected Works, Vol I"
+      .col-xs-6
+        =f.label :publication_type
+        = f.text_field :publication_type, class: "form-control", placeholder: "eg. Video"
+      
+  .form-group.last
+    = f.label :content, "Quote Body"
+    = f.text_area :content, :autofocus => true, class: "form-control", rows: "3"
+
+  = f.submit submit_text, :class => "btn btn-submit"

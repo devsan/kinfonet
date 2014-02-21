@@ -4,7 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-
   private
+
+  def authorize_admin!
+    authenticate_user!
+    unless current_user.admin?
+      flash[:error] = "You must be an admin to do that."
+      redirect_to root_path
+    end
+  end
 
 end

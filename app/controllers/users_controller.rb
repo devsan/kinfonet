@@ -10,6 +10,13 @@ class UsersController < ApplicationController
   def show
   end
 
+  #https://github.com/orthodoc/ayosi/blob/master/app/controllers/users_controller.rb
+  # def create
+  #   raise params.inspect
+  #   logger.info "#{user_params}"
+  #   @quote = Quote.new(user_params)
+  # end
+
   
   private
   def find_user
@@ -20,8 +27,8 @@ class UsersController < ApplicationController
   end
   
   # Never trust parameters from the scary internet, only allow the white list through.
-  def user_params
-    params.require(:user).permit(:fname, :lname)
-  end
+  # def user_params
+  #   params.require(:user).permit(:fname)
+  # end
 
 end

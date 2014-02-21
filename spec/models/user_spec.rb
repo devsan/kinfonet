@@ -17,7 +17,10 @@
 #  updated_at             :datetime
 #  fname                  :string(255)
 #  lname                  :string(255)
+<<<<<<< HEAD
 #  admin                  :boolean          default(FALSE)
+=======
+>>>>>>> modeling-quotes
 #
 
 require 'spec_helper'
@@ -28,7 +31,8 @@ describe User do
   end
   subject { @user }
   
-  it { should respond_to(:name) }
+  it { should respond_to(:fname) }
+  it { should respond_to(:lname) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
   it { should respond_to(:admin) }

@@ -12,6 +12,7 @@ gem 'devise'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '~> 0.0.9'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.1'

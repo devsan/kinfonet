@@ -18,7 +18,6 @@
 #  fname                  :string(255)
 #  lname                  :string(255)
 #  admin                  :boolean          default(FALSE)
-#
 
 class User < ActiveRecord::Base
  has_many :classifieds, dependent: :destroy

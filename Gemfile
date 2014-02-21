@@ -14,6 +14,8 @@ gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '~> 0.0.9'
 gem 'bootstrap-datepicker-rails'
 
+
+gem 'quiet_assets', :group => :development
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.1'
   #gem 'spork-rails', github: 'sporkrb/spork-rails'

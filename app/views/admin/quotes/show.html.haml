@@ -1,0 +1,13 @@
+-provide(:title, "Quote of the Day")
+.row
+  .col-md-8
+    .white-well
+      %h4.red Krishnamurti Quote of the Day
+      %p.sub-head= "#{@quote.source_location} | #{@quote.source_detail}"
+      .quote-content= highlight(simple_format(@quote.content), @quote.phrase).html_safe
+  .col-md-4
+    .text-right= link_to "Edit this quote", edit_admin_quote_path(@quote)
+    .text-right= link_to "Delete", admin_quote_path(@quote), :method => :delete, :data => { :confirm => 'Are you sure?'}
+
+
+

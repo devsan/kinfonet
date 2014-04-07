@@ -17,10 +17,7 @@
 #  updated_at             :datetime
 #  fname                  :string(255)
 #  lname                  :string(255)
-<<<<<<< HEAD
 #  admin                  :boolean          default(FALSE)
-=======
->>>>>>> modeling-quotes
 #
 
 require 'spec_helper'

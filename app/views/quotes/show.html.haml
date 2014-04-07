@@ -1,2 +1,46 @@
-%h1 Quotes#show
-%p Find me in app/views/quotes/show.html.haml
+-provide(:title, 'Krishnamurti Quote of the Day')
+.row
+  .col-md-8
+    .white-well
+      %h4.red Krishnamurti Quote of the Day
+      %p.sub-head= "#{@quote.source_location} | #{@quote.source_detail}"
+      .quote-content= highlight(simple_format(@quote.content), @quote.phrase).html_safe
+      .row
+        .col-xs-6
+          =previous_quote_link(@quote)
+        .col-xs-6.text-right
+          =next_quote_link(@quote)
+
+
+  .col-md-3.col-md-offset-1
+    .sidebar
+      .row
+      .col-md-12.text-center
+        -if user_signed_in? && !current_user.admin? 
+          =link_to "Edit Quote", edit_admin_quote_path(@quote)
+          |
+          =link_to "Add Another Quote", new_admin_quote_path
+      .row
+        .col-md-12
+          .generic-box
+            %h5.title Search Daily Quote Archives
+            =form_tag quotes_path, :method => :get, :class => "no-margin" do
+              .form-group
+                =text_field_tag :query, params[:query], class: "full-width"
+              .form-group.radio
+                =radio_button_tag :search_type, "all", true
+                =label_tag :search_type, "Look for all the words"
+              .form-group.radio
+                =radio_button_tag :search_type, "any", nil
+                =label_tag :search_type, "Look for any of the words"
+              .form-group.radio
+                =radio_button_tag :search_type, "exact ", nil
+                =label_tag :search_type, "Look for the exact phrase"
+              =submit_tag "Search", name: nil, class: "btn btn-default"
+      %hr.spacer
+
+
+
+
+
+

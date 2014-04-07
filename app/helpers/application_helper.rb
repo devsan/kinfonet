@@ -10,7 +10,6 @@ module ApplicationHelper
     end
   end
 
-  #TODO check if bootstrap 3 still supports these
   def twitterized_type(type)
     case type
       when :alert
@@ -25,5 +24,6 @@ module ApplicationHelper
         type.to_s
     end
   end
+
 
 end

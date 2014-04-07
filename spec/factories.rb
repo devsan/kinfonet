@@ -11,7 +11,7 @@ FactoryGirl.define do
   end
 
   factory :quote do
-    phrase "Happy is the man who is nothing"
+    sequence(:phrase)  {|n| "Phrase_#{n}" } 
     content "Lorem ipsum"
     source_location "Ojai CA USA"
     source_detail "6th Public Talk 1946"

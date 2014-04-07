@@ -57,6 +57,7 @@ Spork.prefork do
     
     config.after(:each) do
       DatabaseCleaner.clean
+      Warden.test_reset!
     end
 
     # If true, the base class of anonymous controllers will be inferred

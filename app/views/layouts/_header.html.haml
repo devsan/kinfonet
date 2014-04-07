@@ -6,12 +6,12 @@
           Krishnamurti Information Network
         = link_to (image_tag "kinfonet-logo.png", class: "img-responsive", alt: "logo"), root_path, class: "hidden-xs"
       .col-sm-10.col-md-8
-        .kn-blockquote
-          %p I am saying that there is a different way of life, a way that is not of self-expansion, in which there is ecstasy, but it has no validity if you merely accept my statement; such acceptance will become another form of egotistic activity.  
+        .quote-of-the-day
+          %p= link_to @quote_of_the_day.phrase, @quote_of_the_day, class: "plain"
         %footer
-          %p.clearfix
-            %span.small.pull-left Krishnamurti Quote of the Day
-            %span.small.pull-right Ojai, California | Fifth Talk in Oak Grove, 1946
+          .row
+            .col-xs-6.small= link_to "Krishnamurti Quote of the Day", @quote_of_the_day, class: "plain"
+            .col-xs-6.text-right.small= link_to "#{@quote_of_the_day.source_location} | #{@quote_of_the_day.source_detail}", @quote_of_the_day, class: "plain"
 
     %nav.navbar.navbar-default{role: "navigation"}
       / Brand and toggle get grouped for better mobile display
@@ -29,7 +29,10 @@
       .collapse.navbar-collapse.navbar-ex1-collapse
         %ul.nav.navbar-nav
           %li
-            %a{href: "#"} Link
+            - if user_signed_in? && current_user.admin?
+              =link_to "Quotes", admin_quotes_path
+            -else
+              =link_to "Quotes", quotes_path
           %li
             %a{href: "#"} Link
           %li

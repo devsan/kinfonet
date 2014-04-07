@@ -1,23 +1,14 @@
 .row
   .col-md-8
-    -@quotes.each do |q|
-      %p=q.content
-      %p=q.source_location
-      ____________
-      %hr.spacer
+    .row
+      .col-md-12
+        =will_paginate
+        -unless @quotes.blank?
+          =render "shared/search_metadata", results: @quotes
+      .col-md-12
+        =render @quotes, query: @query
+        =will_paginate 
+
   .col-md-3.col-md-offset-1
-    .generic-box
-      %h5.title Search Daily Quote Archives
-      =form_tag quotes_path, :method => :get, :class => "no-margin" do
-        .form-group
-          =text_field_tag :query, params[:query], class: "full-width"
-        .form-group.radio
-          =radio_button_tag :search_type, "all", (@search_type == "all" || @search_type.blank?)
-          =label_tag :search_type, "Look for all the words"
-        .form-group.radio
-          =radio_button_tag :search_type, "any", @search_type == "any"
-          =label_tag :search_type, "Look for any of the words"
-        .form-group.radio
-          =radio_button_tag :search_type, "exact", @search_type == "exact"
-          =label_tag :search_type, "Look for the exact phrase"
-        =submit_tag "Search", name: nil, class: "btn btn-default"
+    =render "quick_search", search_type: @search_type
+    %hr

@@ -207,6 +207,14 @@ label {
      border: 1px solid #B60040;
    }
  }
+/* search
+ ---------------------------------------------  */
+.search-metadata {
+  @extend .small;
+  color: $gray-light;
+  margin: 0  0 15px;
+}
+
 
  /* misc
  ---------------------------------------------  */
@@ -223,6 +231,10 @@ label {
 
  .no-margin {
   margin: 0;
+ }
+
+ .pagination {
+  margin: 0 0 15px;
  }
 
 /* general styles

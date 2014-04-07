@@ -1,0 +1,15 @@
+.generic-box
+  %h5.title Search Daily Quote Archives
+  =form_tag quotes_path, :method => :get, :class => "no-margin" do
+    .form-group
+      =text_field_tag :query, params[:query], class: "full-width", placeholder: "eg. truth is a pathless land"
+    .form-group.radio
+      =radio_button_tag :search_type, "all", (search_type == "all" || search_type.blank?)
+      =label_tag :search_type, "Look for all the words"
+    .form-group.radio
+      =radio_button_tag :search_type, "any", search_type == "any"
+      =label_tag :search_type, "Look for any of the words"
+    .form-group.radio
+      =radio_button_tag :search_type, "exact", search_type == "exact"
+      =label_tag :search_type, "Look for the exact phrase"
+    =submit_tag "Search", name: nil, class: "btn btn-default"

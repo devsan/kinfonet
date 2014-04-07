@@ -59,7 +59,8 @@ $brand-primary: #74b73f;
 //http://colorschemedesigner.com/
 //http://www.w3schools.com/tags/ref_colorpicker.asp
 //reds
-$primary-color1: #E45353;
+//$primary-color1: #E45353;
+$primary-color1: #d51007;
 $primary-color2: #905656;
 $primary-color3: #6F0B0B;
 $primary-color4: #FCA2A2;
@@ -71,8 +72,12 @@ $secondary-color2: #43589a;
 //grays
 $gray-lightest: #e8e8e5;
 
-//borders
-$gray-light-border: #dfdfdf;
+//borders dark to light
+$border-gray-lighter: #d5d5d5;
+
+//gray backgrounds
+$bg-gray-lighter: #eaeaea;
+$bg-gray-lightest: #fafafa;
 
 //type
 $muted-text: #666;
@@ -82,7 +87,11 @@ http://getbootstrap.com/customize/#variables-nav
 ----------------------------------------- */
 
 //buttons
+
+$btn-submit: #1699c8;
+
 $brand-primary: $secondary-color2;
+
 //nav
 $navbar-default-link-hover-color: $primary-color5;
 

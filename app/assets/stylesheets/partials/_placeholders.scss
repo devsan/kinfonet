@@ -27,6 +27,12 @@
 //    }
 //this will generate leaner css, no box style is compiled, just warning-box
 
+%box {
+  padding: 1em;
+  background-color: $bg-gray-lighter;
+  border: 1px solid $border-gray-lighter;
+   }
+
 %callout {
 margin: 0 0 20px;
 padding: 15px;

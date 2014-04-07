@@ -8,6 +8,7 @@ body {
   //font-family: $default-font-family;
   position: relative;
   color: #444;
+  line-height: 1.5;
   background: image-url("body-bg.png") repeat-x 0 0;
   padding-top: 10px;
 }
@@ -16,6 +17,14 @@ body {
 a {
   outline: none;
   border: 0;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a.plain {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* typography*/
@@ -26,18 +35,21 @@ h2.title {
   margin: 0 0 40px;
   border-bottom: 2px solid $color18;
 }
-
-
-.text-muted {
-    color: #839496;
+.red {
+  color: $color15;
 }
+p.sub-head {
+  color: $gray-light;
+  font-size: 90%;
+}
+
 /* header styles
 --------------------------------------------- */
 header {
   h1.text-hide {
     padding: 0;
     margin: 0; }
-  .kn-blockquote {
+  .quote-of-the-day {
     margin: 0 0 5px;
     clear: both;
     background:  transparent image-url("q_left.png") 1% 15% no-repeat;
@@ -47,8 +59,8 @@ header {
       line-height: 1.4;
       padding: 10px 40px 5px;
       background: transparent image-url("q_right.png") 99% 85% no-repeat; } }
-  .kn-blockquote + footer {
-    p span {
+  .quote-of-the-day + footer {
+    div.small {
       color: $muted-text; } }
 }
 
@@ -123,19 +135,33 @@ form {
   margin-bottom: 30px;
 }
 
+
 .btn-submit {
-   @extend .btn-default;
-   background: whitesmoke;
-   &:hover {
-    background: darken(whitesmoke, 5%); }
- }
+  background: $btn-submit;
+  color: white;
+  &:hover {
+    background: darken($btn-submit, 5%);
+    color: white
+     }
+}
 
 label {
   display: block;
   font-size: 90%;
-  margin: 0;
+  margin: 0 0 3px;
 }
 
+.form-group.radio {
+  padding: 0;
+  input[type='radio'] {
+    float: left;
+    margin: 3px 0.5em 0 0;
+  }
+}
+
+.form-group input.full-width {
+  width: 100%;
+}
 
 .form-group input:not([type='submit']), textarea, select, .uneditable-input {
    //border: 1px solid #bbb;
@@ -195,13 +221,24 @@ label {
    color: white;
  }
 
+ .no-margin {
+  margin: 0;
+ }
+
 /* general styles
 --------------------------------------------- */
+.generic-box {
+  @extend %box;
+  .title {
+    margin: 0 0 15px; }
+}
+
 .white-well {
   @extend .well;
-  padding: 30px;
+  padding: 25px 40px;
   background: #fff;
-  border-color: whitesmoke;
+  border-color: $gray-lightest;
+  position: relative;
   @include border-radius(6px);
 }
 

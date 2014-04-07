@@ -18,10 +18,10 @@
 @import "bootstrap";
 @import "bootstrap-datepicker";
 
-@import "partials/placeholders";
-@import "partials/mixins";
 
 //Site
+@import "partials/mixins";
+@import "partials/placeholders";
 @import "partials/base";
 @import "partials/screen";
 

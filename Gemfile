@@ -13,7 +13,7 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '~> 0.0.9'
 gem 'bootstrap-datepicker-rails'
-
+gem 'pg_search'
 
 gem 'quiet_assets', :group => :development
 group :development, :test do

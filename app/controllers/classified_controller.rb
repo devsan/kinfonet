@@ -21,7 +21,6 @@ class ClassifiedsController < ApplicationController
     end
   end
 
-
   private
     def classified_params
       params.require(:classified).permit(:name, :content)

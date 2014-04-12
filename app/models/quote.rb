@@ -22,6 +22,7 @@ class Quote < ActiveRecord::Base
             :source_location, :source_detail, presence: true
   validates :phrase,  presence:true, 
                       uniqueness: { case_sensitive: false }
+  scope :available, -> { where("display_date < ? OR display_date IS NULL", 1.year.ago) }
 
   pg_search_scope :search_all_words, 
                   :against => [:content, :source_location]
@@ -59,20 +60,9 @@ class Quote < ActiveRecord::Base
    end
  end
 
-
-
-
-
-
   #cronjob to be run everday at midnight + 15 minute
+  #wont be necessary if it is okay for first user request of the day to create and cache quote via Quote#for_today
   def self.create_quote_for_today
-    recycleable_quotes = Quote.where("display_date < ?", 1.year.ago)
-    if recycleable_quotes.present?
-      recylceable_quotes.each do |quote|
-        quote.display_date = nil
-        quote.save
-      end
-    end
     quote_for_today = select_quote_for_today
     Rails.cache.write("quote/#{Date.today.strftime('%F')}") { quote_for_today }
   end
@@ -89,22 +79,21 @@ class Quote < ActiveRecord::Base
   end
 
   def previous
-    display_date = self.display_date - 1.day
-    previous_quote = Quote.find_by(display_date: display_date)
+    prev_display_date = self.display_date - 1.day
+    previous_quote = Quote.find_by(display_date: prev_display_date)
   end
 
   def next
     return false if self.display_date == Date.today
-    display_date = self.display_date + 1.day
-    next_quote = Quote.find_by(display_date: display_date)   
+    next_display_date = self.display_date + 1.day
+    next_quote = Quote.find_by(display_date: next_display_date)   
   end
 
   private
     def select_quote_for_today
-      available_quote_count = Quote.where(display_date: nil).count()
-      quote = Quote.limit(1).offset(rand(available_quote_count)).where(display_date: nil).first
-      quote.display_date = Date.today
-      quote.save
+      available_quotes_count = Quote.available.count()
+      quote = Quote.available.offset(rand(available_quotes_count)).first
+      quote.update_attribute('display_date', Date.today)
       quote
     end
 end

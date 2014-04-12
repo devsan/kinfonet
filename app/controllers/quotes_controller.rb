@@ -10,8 +10,7 @@ class QuotesController < ApplicationController
   def show
   end
 
-  private
-    
+  private  
     def find_quote
       begin
         @quote = Quote.find(params[:id])
@@ -20,6 +19,4 @@ class QuotesController < ApplicationController
         redirect_to root_path
       end
     end
-
-
 end

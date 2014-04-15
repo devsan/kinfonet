@@ -1,1 +1,17 @@
-=link_to "New Quote", new_admin_quote_path
+.row
+  .col-md-8
+    -if @quotes.present?
+      .row
+        .col-md-12
+          =will_paginate
+          =render "shared/search_metadata", results: @quotes
+      .row
+        .col-md-12
+          =render @quotes, query: @query
+          =will_paginate 
+
+  .col-md-3.col-md-offset-1
+    =render "quick_search", search_type: @search_type
+    %hr
+
+    =link_to "New Quote", new_admin_quote_path

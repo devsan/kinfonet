@@ -44,8 +44,9 @@ class Quote < ActiveRecord::Base
                   }
   scope :exact_match, Proc.new{ |query| where("source_location ilike :q or content ilike :q", q: "%#{query}%") }
 
+  scope :archived, -> { where("display_date IS NOT NULL and display_date <= ?", Date.today) }
+
    def self.text_search(query, search_type)
-   if query.present?
       case search_type
       when "all"
         search_all_words(query)
@@ -56,20 +57,21 @@ class Quote < ActiveRecord::Base
       else
         search(query)
       end
-    else
-      self.all
-   end
  end
 
   def previous
-    prev_display_date = self.display_date - 1.day
-    previous_quote = Quote.find_by(display_date: prev_display_date)
+    unless self.display_date.blank?
+      prev_display_date = self.display_date - 1.day
+      previous_quote = Quote.find_by(display_date: prev_display_date)
+    end
   end
 
   def next
     return false if self.display_date == Date.today
-    next_display_date = self.display_date + 1.day
-    next_quote = Quote.find_by(display_date: next_display_date)   
+    unless self.display_date.blank?
+      next_display_date = self.display_date + 1.day
+      next_quote = Quote.find_by(display_date: next_display_date)
+    end  
   end
 
 end

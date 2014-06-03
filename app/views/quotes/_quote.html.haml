@@ -1,5 +1,8 @@
-%h5.red= "#{quote.source_detail} | #{quote.source_location}"
+- @quotes_by_month.each do |month, quotes|
+  %h4.red= month.strftime("%B %Y")
+  - quotes.each_with_index do |quote, index|
+    %dl
+      %dt= "#{quote.source_location} | #{quote.source_detail}"
+      %dd= quote.phrase.html_safe
+      
 
-%p=highlight(simple_format(quote.content), query).html_safe
-
-%hr

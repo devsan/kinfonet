@@ -1,14 +1,28 @@
 .row
-  .col-md-8
+  .col-md-8 
+    %h3.mb20 Krishnamurti Quote of the Day Archives
     .row
-      .col-md-12
-        =will_paginate
-        -unless @quotes.blank?
-          =render "shared/search_metadata", results: @quotes
-      .col-md-12
-        =render @quotes, query: @query
-        =will_paginate 
+      .col-md-12.quotes-lst        
+        - unless @query.present?    
+          - @quotes_by_month.each do |month, quotes|
+            %h4.red= month.strftime("%B %Y")
+            - quotes.each do |quote|
+              %dl
+                %dt= link_to quote.phrase.html_safe, quote_path(quote)
+                %dd= "#{quote.source_location} | #{quote.source_detail}"
+            %hr.spacer
+                         
+        - else
+          -if @quotes.present?
+            = will_paginate
+            = render "shared/search_metadata", results: @quotes
+            = render partial: "quotes/search/quote", collection: @quotes, locals: { query: @query }
+            = will_paginate 
+          -else
+            %p No quotes matched your search criteria.
+        
 
   .col-md-3.col-md-offset-1
-    =render "quick_search", search_type: @search_type
-    %hr
+    = render "quick_search", search_type: @search_type
+    -if @query.present?
+      = link_to "View All Quotes", quotes_path, class: "btn btn-default"

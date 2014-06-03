@@ -7,23 +7,23 @@
       .quote-content= highlight(simple_format(@quote.content), @quote.phrase).html_safe
       .row
         .col-xs-6
-          =previous_quote_link(@quote)
+          = previous_quote_link(@quote)
         .col-xs-6.text-right
-          =next_quote_link(@quote)
+          = next_quote_link(@quote)
+      -if user_signed_in? && current_user.admin? 
+        %hr
+        .row.no-margin
+          .col-md-12.text-center.small   
+            = link_to "Edit Quote", edit_admin_quote_path(@quote)
+            |
+            = link_to "Add Another Quote", new_admin_quote_path
 
   .col-md-3.col-md-offset-1
-
     .row
       .col-md-12
-        =render "quick_search", search_type: @search_type
-    %hr.spacer
-    -if user_signed_in? && current_user.admin? 
-      .row
-        .col-md-12     
-          =link_to "Edit Quote", edit_admin_quote_path(@quote)
-          |
-          =link_to "Add Another Quote", new_admin_quote_path
-      %hr.spacer
+        = render "quick_search", search_type: @search_type
+        = link_to "View All Quotes", quotes_path, class: "btn btn-default"
+
 
 
 

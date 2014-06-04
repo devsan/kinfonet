@@ -1,4 +1,4 @@
-class Quote
+class Quote < ActiveRecord::Base
   module ForToday
     extend ActiveSupport::Concern
     included do
@@ -7,7 +7,7 @@ class Quote
     
     module ClassMethods     
       #run this as daily cron job first set all display dates of all quotes greater than a year ago to null to make sure we always have available quotes
-      #
+      # Rails.cache.read('quote/2014-06-03')
       def create_quote_for_today
         unless quote_for_today.present?
           quote_for_today = select_quote_for_today

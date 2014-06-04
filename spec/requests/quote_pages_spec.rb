@@ -1,10 +1,14 @@
 require 'spec_helper'
 
 describe "Quote Pages" do
+  
   subject { page }
+  
   describe "view" do
     let(:quote) { FactoryGirl.create(:quote, display_date: Date.today) }
+    
     let!(:prev_quote) { FactoryGirl.create(:quote, display_date: Date.today - 1.day) }
+    
     let!(:next_quote) { FactoryGirl.create(:quote, display_date: Date.today + 1.day) }
     before do
       #visit root_path

@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :signed_in_user
   before_action :authenticate_user!, only: [:show]
 
-  
   def index
   end
 

@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show]
-  before_action :signed_in_user
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:edit]
 
   def index
   end
 
   def show
+  end
+
+  def edit
   end
 
   #https://github.com/orthodoc/ayosi/blob/master/app/controllers/users_controller.rb

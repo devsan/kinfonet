@@ -5,7 +5,8 @@ describe "User Pages" do
 
   describe "signup page" do
     before { visit sign_up_path }
-    it { should have_content('Sign up') }
+    it {p sign_up_path}
+    it { should have_content('Sign Up') }
     it { should have_title(full_title('Sign up')) }
   end
 
@@ -27,7 +28,7 @@ describe "User Pages" do
         fill_in "Password", with: "secret"
       end
       it "should change User count by one" do
-        expect {click_button submit }.to change(User, :count).by(1)
+        expect { click_button submit }.to change(User, :count).by(1)
       end
 
       describe "after saving user" do
@@ -62,7 +63,7 @@ describe "User Pages" do
     let(:user) { FactoryGirl.create(:user) }
     before(:each) do
       sign_in user
-      visit user_path(user)
+      # visit user_path(user)
     end
     #it { p current_path}
     it { should have_content(user.name) }

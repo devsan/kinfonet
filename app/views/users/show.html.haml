@@ -1,3 +1,10 @@
--provide(:title, @user.name)
-%h1= "#{@user.name}"
-%p Find me in app/views/users/show.html.haml
+-provide(:title, @user.display_name)
+.row
+  .col-md-9
+    %h2.title
+      #{@user.display_name} -
+      %span.black
+        Profile
+  .col-md-2.col-md-offset-1
+    - if (current_user == @user)
+      = link_to "Edit Profile", user_path(@user)

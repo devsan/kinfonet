@@ -5,7 +5,6 @@ html {
 }
 
 body {
-  //font-family: $default-font-family;
   position: relative;
   color: #444;
   line-height: 1.5;
@@ -28,16 +27,32 @@ a.plain {
 }
 
 /* typography*/
+
 h2.title {
   @extend .page-header;
-  font-size: 24px;
-  color: #36332F;
-  margin: 0 0 40px;
+  font-size: 150%;
+  color: $color15;
+  margin: 0 0 20px;
   border-bottom: 2px solid $color18;
+  span {
+    color: #36332F;
+  }
 }
+
+h2.centered {
+  @extend h2.title;
+  color: #36332F;
+  text-align: center;
+}
+
+.black {
+  color: #36332F;
+}
+
 .red {
   color: $color15;
 }
+
 p.sub-head {
   color: $gray-light;
   font-size: 90%;
@@ -135,7 +150,6 @@ form {
   margin-bottom: 30px;
 }
 
-
 .btn-submit {
   background: $btn-submit;
   color: white;
@@ -149,6 +163,12 @@ label {
   display: block;
   font-size: 90%;
   margin: 0 0 3px;
+  span.hint {
+    font-family: $font-family-serif;
+    font-style: italic;
+    font-size: $font-size-small;
+    font-weight: normal; 
+  }
 }
 
 .form-group.radio {
@@ -164,11 +184,11 @@ label {
 }
 
 .form-group input:not([type='submit']), textarea, select, .uneditable-input {
-   //border: 1px solid #bbb;
-   //width: 100%;
-   margin: 0.1em 0;
-   //padding: 6px 12px;
-   //outline: none;
+  margin: 0.1em 0;
+  border: 1px solid rgb(185,185,185);
+  border-top-color: rgb(160,160,160);
+  box-shadow: inset 0px 1px 2px rgba(0,0,0,0.1);
+  @include border-radius(2px);
 }
 
 .form-group span.help {
@@ -207,6 +227,7 @@ label {
      border: 1px solid #B60040;
    }
  }
+
 /* search
  ---------------------------------------------  */
 .search-metadata {
@@ -215,10 +236,8 @@ label {
   margin: 0  0 15px;
 }
 
-
  /* misc
  ---------------------------------------------  */
-
 
 /* general styles
 --------------------------------------------- */
@@ -233,8 +252,9 @@ label {
   padding: 25px 40px;
   background: #fff;
   border-color: $gray-lightest;
+  border-color: rgb(185, 185, 185);
   position: relative;
-  @include border-radius(6px);
+  @include border-radius(2px);
 }
 
 .callout-info {

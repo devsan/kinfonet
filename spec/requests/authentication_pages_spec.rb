@@ -24,7 +24,6 @@ describe "Authentication" do
     describe "with valid data" do
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user }
-
       it { should_not have_link('Sign in', href: sign_in_path) }
       it { should_not have_error_message("Invalid") }  
       it { should have_selector('div.alert.alert-info', text: 'Signed in') }

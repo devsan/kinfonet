@@ -18,6 +18,7 @@
 #  fname                  :string(255)
 #  lname                  :string(255)
 #  admin                  :boolean          default(FALSE)
+#  feedback               :text
 #
 
 require 'spec_helper'
@@ -32,6 +33,7 @@ describe User do
   it { should respond_to(:lname) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
+  it { should respond_to(:feedback) }
   it { should respond_to(:admin) }
 
   #associations
@@ -59,15 +61,15 @@ describe User do
   end
 
   describe "when email format is invalid" do
-      it "should be invalid" do
-        addresses = %w[user@foo,com user_at_foo.org example.user@foo.
-                       foo@bar_baz.com foo@bar+baz.com]
-        addresses.each do |invalid_address|
-          @user.email = invalid_address
-          expect(@user).not_to be_valid
-        end
+    it "should be invalid" do
+      addresses = %w[user@foo,com user_at_foo.org example.user@foo.
+                     foo@bar_baz.com foo@bar+baz.com]
+      addresses.each do |invalid_address|
+        @user.email = invalid_address
+        expect(@user).not_to be_valid
       end
     end
+  end
 
   describe "when email format is valid" do
     it "should be valid" do
@@ -78,6 +80,17 @@ describe User do
       end
     end
   end
+
+  describe "display name" do
+    before { @user.save }
+    its(:display_name) { should eq("Andrea S.") }
+  end
+
+  describe "full name" do
+    before { @user.save }
+    its(:full_name) { should eq("Andrea Singh")}
+  end 
+
 
   describe "classifieds association" do
     before { @user.save  }

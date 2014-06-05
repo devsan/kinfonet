@@ -18,17 +18,36 @@
 #  fname                  :string(255)
 #  lname                  :string(255)
 #  admin                  :boolean          default(FALSE)
+#  feedback               :text
+#
 
 class User < ActiveRecord::Base
- has_many :classifieds, dependent: :destroy
+  has_many :classifieds, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :fname, presence: true
   validates :fname, length: { maximum: 50 }
+  before_save :strip_name_fields
 
-  def name
-    "#{fname} #{lname}".squish
+
+  def display_name
+    if self.lname.present?
+      "#{fname.downcase.capitalize} #{lname[0].upcase}."
+    else
+      self.fname
+    end
   end
+  
+  def full_name
+    "#{fname} #{lname}"
+  end
+  
+  private
+    def strip_name_fields
+      self.fname.strip!
+      self.lname.strip! if self.lname.present?
+    end
+
 end

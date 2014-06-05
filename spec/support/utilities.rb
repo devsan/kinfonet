@@ -12,26 +12,16 @@ def full_title(page_title)
   end
 end
 
-# def sign_in(user, options={})
-#   if options[:no_capybara]
-#     login_as(user, :scope => :user)
-#   else 
-#     visit sign_in_path
-#     fill_in "Email",    with: user.email
-#     fill_in "Password", with: user.password
-#     click_button "Sign in"
-#   end
-# end
-
 def sign_in(user, options={})
-   current_user = user || Factory.create(:user)
-  if request.present?
-    sign_in(current_user)
-  else
-    login_as(current_user, :scope => :user)
+  if options[:no_capybara]
+    login_as(user, :scope => :user)
+  else 
+    visit sign_in_path
+    fill_in "Email",    with: user.email
+    fill_in "Password", with: user.password
+    click_button "Sign in"
   end
 end
-
 
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|

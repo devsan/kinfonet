@@ -4,32 +4,41 @@
     .white-well
       .row
         .col-md-6.col-md-offset-3
-          %h2.title.text-center Sign Up
+          %h2.centered Sign Up
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
         = render 'shared/error_messages', object: f.object
         .form-group
           .row
-            .col-xs-8.col-xs-offset-2
+            .col-sm-8.col-sm-offset-2
               = f.label :fname, "First Name"
               = f.text_field :fname, :autofocus => true, class: "form-control"
         .form-group
           .row
-            .col-xs-8.col-xs-offset-2
+            .col-sm-8.col-sm-offset-2
               = f.label :lname, "Last Name"
               = f.text_field :lname, class: "form-control"
         .form-group
           .row
-            .col-xs-8.col-xs-offset-2
+            .col-sm-8.col-sm-offset-2
               = f.label :email
               = f.email_field :email, class: "form-control"
         .form-group
           .row
-            .col-xs-8.col-xs-offset-2
+            .col-sm-8.col-sm-offset-2
               = f.label :password
               = f.password_field :password, class: "form-control"
         .form-group
           .row
-            .col-xs-8.col-xs-offset-2
+            .col-sm-8.col-sm-offset-2
+              = f.label :feedback do
+                What brings you to Kinfonet?
+                %span.hint (optional)
+              = f.text_area :feedback, class: "form-control"
+
+
+        .form-group
+          .row
+            .col-sm-8.col-sm-offset-2
               = f.submit "Create my account", :class => "btn btn-submit"
   / .col-sm-4.col-sm-offset-1
   /   .callout-info

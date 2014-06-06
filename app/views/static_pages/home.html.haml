@@ -6,12 +6,3 @@
       This is the home page for the
       =link_to "Krishnamurti Information Network", root_path
   .sidebar.col-md-3
-    %ul
-      - unless user_signed_in?
-        %li.sign-up<
-          =link_to "Join Kinfonet", new_user_registration_path, class: "btn btn-sign-up"
-        %li.sign-in<
-          =link_to "Sign in", sign_in_path, class: "btn btn-sign-in"
-      - else
-        %li.sign-out<
-          =link_to "Sign out", sign_out_path, class: "btn signout-btn"

@@ -113,7 +113,11 @@ header {
     color: #777; }
 }
 
-.navbar-default .navbar-nav > li > a.btn-sign-in {
+.navbar-nav > li > a.btn {
+  text-align: left;
+}
+
+.navbar-default .navbar-nav > li> a.btn-sign-in {
   margin: 10px 0 0 15px;
   padding: 5px 15px 5px 15px;
   border-color: $primary-color3;

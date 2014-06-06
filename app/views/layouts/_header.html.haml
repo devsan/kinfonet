@@ -55,13 +55,13 @@
               %li
                 %a{href: "#"} One more separated link
           - unless user_signed_in?
-            %li.login-link<
-              =link_to "Sign in", sign_in_path, class: "btn btn-sign-in"
-            %li.login-link<
-              =link_to "Join Kinfonet", new_user_registration_path, class: "btn btn-sign-up"     
+            %li.right<
+              = link_to "Sign in", sign_in_path, class: "btn btn-sign-in"
+            %li.right= link_to "Join Kinfonet", new_user_registration_path, class: "btn btn-sign-up"     
           - else
-            %li.login-link<
-              =link_to "Sign out", sign_out_path, class: "btn signout-btn"
+            %li.right= link_to "Sign out", sign_out_path, class: "btn signout-btn"
+            %li.right= link_to "Settings", edit_user_path(current_user)
+            %li.right= link_to "Profile", current_user
       / /.navbar-collapse
 
             

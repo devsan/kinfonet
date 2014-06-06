@@ -14,23 +14,25 @@ describe "Authentication" do
   describe "sign in" do
     before { visit sign_in_path }
 
-    describe "with invalid data" do
+    describe "with invalid information" do
       before { click_button("Sign in") }
       
       it { should have_title('Sign in')}
       it { should have_error_message("Invalid") }      
     end
 
-    describe "with valid data" do
+    describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user }
       it { should_not have_link('Sign in', href: sign_in_path) }
+      it { should have_link("Profile", href: user_path(user)) } 
+      it { should have_link("Settings", href: edit_user_path(user))}
       it { should_not have_error_message("Invalid") }  
       it { should have_selector('div.alert.alert-info', text: 'Signed in') }
       #it {p current_path}
       
       describe "followed by sign out" do
-        before { click_link 'Sign out' }
+        before { first(:link, 'Sign out').click }
         it { should have_notice_message('Signed out') }
         it { should have_link('Sign in', href: sign_in_path) }
       end

@@ -19,6 +19,11 @@
 #  lname                  :string(255)
 #  admin                  :boolean          default(FALSE)
 #  feedback               :text
+#  avatar_file_name       :string(255)
+#  avatar_content_type    :string(255)
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
+#  public_comment         :text
 #
 
 require 'spec_helper'

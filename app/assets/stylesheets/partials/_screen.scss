@@ -53,6 +53,13 @@ h2.centered {
   color: $color15;
 }
 
+.gray {
+  color: $gray;
+}
+.gray-light {
+  color: $gray-light;
+}
+
 p.sub-head {
   color: $gray-light;
   font-size: 90%;
@@ -164,15 +171,20 @@ form {
 }
 
 label {
-  display: block;
   font-size: 90%;
   margin: 0 0 3px;
-  span.hint {
-    font-family: $font-family-serif;
-    font-style: italic;
-    font-size: $font-size-small;
-    font-weight: normal; 
-  }
+
+}
+
+span.hint {
+  font-family: $font-family-serif;
+  font-style: italic;
+  font-size: $font-size-small;
+  font-weight: normal; 
+}
+p.hint {
+  @extend span.hint;
+  text-align: center;
 }
 
 .form-group.radio {
@@ -187,7 +199,8 @@ label {
   width: 100%;
 }
 
-.form-group input:not([type='submit']), textarea, select, .uneditable-input {
+input[type='text'], 
+textarea, select, .uneditable-input {
   margin: 0.1em 0;
   border: 1px solid rgb(185,185,185);
   border-top-color: rgb(160,160,160);
@@ -239,6 +252,27 @@ label {
   color: $gray-light;
   margin: 0  0 15px;
 }
+
+ /* users
+ ---------------------------------------------  */
+ /* edit */
+
+ form.edit_user {
+  .current-avatar {
+    width: 25%;
+    margin-right: 2%;
+    float:left;
+    text-align: center;
+  span {
+    display: block;
+    font-size: 85%;
+  }
+  }
+  .upload-avatar {
+      width: 70%;
+      float:left;
+  }
+ }
 
  /* misc
  ---------------------------------------------  */

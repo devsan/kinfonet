@@ -1,1 +1,49 @@
-edit.html.haml
+-provide(:title,"Edit User")
+.row
+  .col-md-8.col-md-offset-2
+    .white-well
+      .row
+        .col-sm-6.col-sm-offset-3
+          %h2.centered Update Your Profile
+      .row
+        .col-sm-8.col-sm-offset-2
+          = form_for @user, html: { multipart: true } do |f|
+            = render 'shared/error_messages', object: f.object
+            %h5.text-center.gray Shared Information
+            %p.hint Seen by those visiting your profile page
+            .form-group
+              = f.label :fname, "First Name"
+              = f.text_field :fname, class: "form-control"
+            .form-group
+              = f.label :lname do 
+                Last Name
+                %span.hint (only first intitial is visible on your profile )
+              = f.text_field :lname, class: "form-control"
+            .form-group.clearfix
+              .current-avatar
+                = image_tag @user.avatar.url(:thumb), class: "img-responsive"
+                %span Current Picture
+              .upload-avatar
+                = f.label :avatar, "Change Profile Picture", class: "control-label"
+                = f.file_field :avatar, class: "form-control"
+                .checkbox
+                  = f.label :delete_avatar do
+                    = f.check_box :delete_avatar
+                    Delete Avatar
+            .form-group
+              = f.label :public_comment, "Thoughts/Reflections"
+              = f.text_area :public_comment,  class: "form-control"
+            %hr.spacer15
+            %h5.text-center.gray Private Information
+            %p.hint Not displayed on any public area of the site
+            .form-group
+              = f.label :email, "Email"
+              = f.text_field :email, class: "form-control"
+            .form-group
+              = f.label :password do
+                Password
+                %span.hint (leave blank unless you want to change password)
+              = f.password_field :password, class: "form-control"
+            .form-actions
+              = f.submit "Save Changes", class: "btn btn-submit"
+

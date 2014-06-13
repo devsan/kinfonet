@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show]
+  before_action :find_user, only: [:show, :edit, :update]
   before_action :authenticate_user!, only: [:edit]
 
   def index
@@ -11,14 +11,20 @@ class UsersController < ApplicationController
   def edit
   end
 
-  #https://github.com/orthodoc/ayosi/blob/master/app/controllers/users_controller.rb
-  # def create
-  #   raise params.inspect
-  #   logger.info "#{user_params}"
-  #   @quote = Quote.new(user_params)
-  # end
+  def update
+    if @user.update(user_params)
+      flash[:notice] = "Profile updated."
+      # Sign in the user bypassing validation  
+      sign_in @user, bypass: true if params[:user][:password].present?
+      redirect_to @user
+    else
+      #remove duplicate paperclip error keys
+      @user.errors.messages.except!(:avatar_content_type,:avatar_file_name, :avatar_file_size)
+      #
+      render 'edit'
+    end
+  end
 
-  
   private
   def find_user
     @user = User.find(params[:id])
@@ -28,8 +34,14 @@ class UsersController < ApplicationController
   end
   
   # Never trust parameters from the scary internet, only allow the white list through.
-  # def user_params
-  #   params.require(:user).permit(:fname)
-  # end
+  def user_params  
+    #devise validation wont let us pass in an empty password
+    if !params[:user][:password].present?
+      params[:user].delete(:password)
+    end
+    
+    params.require(:user).permit( :fname, :lname, :public_comment, :email, 
+      :password, :feedback, :avatar, :delete_avatar)
+  end
 
 end

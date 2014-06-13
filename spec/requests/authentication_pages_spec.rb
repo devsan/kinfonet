@@ -35,6 +35,8 @@ describe "Authentication" do
         before { first(:link, 'Sign out').click }
         it { should have_notice_message('Signed out') }
         it { should have_link('Sign in', href: sign_in_path) }
+        it { should_not have_link("Profile") }
+        it { should_not have_link("Settings") } 
       end
     end
     
@@ -45,10 +47,10 @@ describe "Authentication" do
       describe "when attempting to visit a protected page" do
         let(:user) { FactoryGirl.create(:user) }
 
-        before { visit user_path(user) }
+        before { visit edit_user_path(user) }
         
         it "should redirect to sign in page" do
-          # p user_path(user)
+          #p user_path(user)
           # p current_path
           # p sign_in_path
           #p (current_path == new_user_session_path)
@@ -56,7 +58,8 @@ describe "Authentication" do
         end
         
         it "should prompt user to sign in" do
-          expect(page).to have_error_message('You need to sign in')
+          p current_path
+          expect(page).to have_error_message(/You need to sign/)
         end
         
         describe "after signing in successfully" do
@@ -64,7 +67,7 @@ describe "Authentication" do
           it "should redirect user back to requested page" do
             # p current_path
             # p new_user_session_path
-            expect(current_path).to eq(user_path(user))         
+            expect(current_path).to eq(edit_user_path(user))         
           end         
         end
 

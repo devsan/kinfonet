@@ -5,6 +5,9 @@
       #{@user.display_name} -
       %span.black
         Profile
+    -if @user.avatar.present?
+      .avatar
+        = image_tag @user.avatar.url(:medium), class: "img-responsive"
   .col-md-2.col-md-offset-1
     - if (current_user == @user)
       = link_to "Edit Profile", edit_user_path(@user)

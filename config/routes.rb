@@ -7,7 +7,7 @@ devise_for :users, :controllers => { :registrations => "registrations", :session
   get "sign_in", :to => 'sessions#new'
  end
  
- resources :users, only: [:index, :show, :edit]
+ resources :users
  resources :classifieds
  resources :quotes, only: [:index, :show]
   

@@ -20,7 +20,6 @@ class UsersController < ApplicationController
     else
       #remove duplicate paperclip error keys
       @user.errors.messages.except!(:avatar_content_type,:avatar_file_name, :avatar_file_size)
-      #
       render 'edit'
     end
   end

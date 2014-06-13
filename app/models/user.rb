@@ -29,7 +29,7 @@
 class User < ActiveRecord::Base
   has_many :classifieds, dependent: :destroy
   before_save :strip_name_fields
-  before_save :check_delete_avatar_attribute
+  before_save :delete_avatar!, if: :delete_avatar?
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -74,20 +74,18 @@ class User < ActiveRecord::Base
     "#{fname} #{lname}"
   end
   
-  private
-    def delete_avatar?
-      self.delete_avatar == "1"
-    end
-    
+  private 
     def strip_name_fields
       self.fname.strip!
       self.lname.strip! if self.lname.present?
     end
 
-    def check_delete_avatar_attribute
-      if delete_avatar? && (!self.avatar_file_name_changed?)
-        self.avatar = nil
-      end
+    def delete_avatar?
+      self.delete_avatar == "1" && (!self.avatar_file_name_changed?)
+    end
+
+    def delete_avatar!
+      self.avatar = nil
     end
 
 end

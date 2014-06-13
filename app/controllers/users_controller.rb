@@ -33,7 +33,6 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
-  # Never trust parameters from the scary internet, only allow the white list through.
   def user_params  
     #devise validation wont let us pass in an empty password
     if !params[:user][:password].present?

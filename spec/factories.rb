@@ -22,4 +22,11 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
+
+  factory :address do
+    city "Berkeley"
+    state_code "CA"
+    country_code "US"
+    association :addressable
+  end
 end

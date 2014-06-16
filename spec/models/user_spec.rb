@@ -41,8 +41,11 @@ describe User do
   it { should respond_to(:feedback) }
   it { should respond_to(:admin) }
 
+
+
   #associations
   it {should respond_to(:classifieds)}
+  it { should respond_to(:address) } 
 
   it { should be_valid }
   it { should_not be_admin }

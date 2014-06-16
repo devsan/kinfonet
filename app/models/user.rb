@@ -28,6 +28,7 @@
 
 class User < ActiveRecord::Base
   has_many :classifieds, dependent: :destroy
+  has_one :address, as: :addressable, dependent: :destroy
   before_save :strip_name_fields
   before_save :delete_avatar!, if: :delete_avatar?
 
@@ -52,14 +53,19 @@ class User < ActiveRecord::Base
                                   :message => "image file name is invalid - should have a gif, png or jpg extension",
                                   :allow_blank => true
   
+  # validates_attachment_size :avatar, 
+  #                           :less_than => 100.kilobytes,
+  #                           :message => "image size is too big; maximum size is 100 kb."
+
   validates_attachment_size :avatar, 
-                            :less_than => 200.kilobytes,
-                            :message => "image size is too big; maximum size is 150 kb.",
-                             :unless => Proc.new {|model| model[:avatar].nil?}
+                            :less_than => 50.kilobytes,
+                            :message => "Image size is larger that the maximum allowed (100 kilobytes)"
   
   validates :fname, presence: true
   validates :fname, length: { maximum: 50 }
 
+  accepts_nested_attributes_for :address, allow_destroy: true, 
+                                          reject_if: :all_blank
   attr_accessor :delete_avatar
 
   def display_name

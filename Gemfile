@@ -14,6 +14,8 @@ gem 'bootstrap-will_paginate', '~> 0.0.9'
 gem 'bootstrap-datepicker-rails'
 gem 'pg_search'
 gem "paperclip"
+gem 'carmen-rails', '~> 1.0.0'
+gem 'geokit-rails'
 
 gem 'quiet_assets', :group => :development
 group :development, :test do

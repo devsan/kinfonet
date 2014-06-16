@@ -21,15 +21,19 @@
               = f.text_field :lname, class: "form-control"
             .form-group.clearfix
               .current-avatar
-                = image_tag @user.avatar.url(:thumb), class: "img-responsive"
+                -if @user.try(:errors) && @user.errors.include?(:avatar) 
+                  = image_tag @avatar_url_was, class: "img-responsive"
+                -else
+                  = image_tag @user.avatar.url(:thumb), class: "img-responsive"
                 %span Current Picture
               .upload-avatar
                 = f.label :avatar, "Change Profile Picture", class: "control-label"
                 = f.file_field :avatar, class: "form-control"
-                .checkbox
-                  = f.label :delete_avatar do
-                    = f.check_box :delete_avatar
-                    Delete Avatar
+                - if @user.avatar.present? && !@user.errors.include?(:avatar) 
+                  .checkbox
+                    = f.label :delete_avatar do
+                      = f.check_box :delete_avatar
+                      Delete Avatar
             .form-group
               = f.label :public_comment, "Thoughts/Reflections"
               = f.text_area :public_comment,  class: "form-control"
@@ -44,6 +48,11 @@
                 Password
                 %span.hint (leave blank unless you want to change password)
               = f.password_field :password, class: "form-control"
-            .form-actions
-              = f.submit "Save Changes", class: "btn btn-submit"
+            %hr.spacer15
+            = f.fields_for :address do |a|
+              .form-group
+                = a.label :country_code
+                = a.country_select :country_code, priority: %w(US IN GB CA), prompt: 'Please select a country'
+              .form-actions
+                = f.submit "Save Changes", class: "btn btn-submit"
 

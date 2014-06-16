@@ -9,17 +9,21 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user.build_address unless @user.address.present?
   end
 
   def update
+    @avatar_url_was = @user.avatar.url(:thumb)
     if @user.update(user_params)
       flash[:notice] = "Profile updated."
       # Sign in the user bypassing validation  
       sign_in @user, bypass: true if params[:user][:password].present?
       redirect_to @user
     else
-      #remove duplicate paperclip error keys
-      @user.errors.messages.except!(:avatar_content_type,:avatar_file_name, :avatar_file_size)
+     #paperclip is producing duplicate error messages ....
+      if @user.errors.include?(:avatar)
+        @user.errors.messages.except!(:avatar_content_type,:avatar_file_name, :avatar_file_size)
+      end
       render 'edit'
     end
   end
@@ -37,9 +41,10 @@ class UsersController < ApplicationController
     if !params[:user][:password].present?
       params[:user].delete(:password)
     end
-    
-    params.require(:user).permit( :fname, :lname, :public_comment, :email, 
-      :password, :feedback, :avatar, :delete_avatar)
+    params.require(:user).permit( 
+            :fname, :lname, :public_comment, :email, 
+            :password, :feedback, :avatar, :delete_avatar, 
+            address_attributes: [ :city, :state_code, :country_code, :zip])
   end
 
 end

@@ -13,6 +13,7 @@ app/assets/stylesheets/old/
 # Ignore other unneeded files.
 database.yml
 doc/
+public/system
 *.swp
 *~
 .project

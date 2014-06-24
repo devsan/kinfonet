@@ -7,7 +7,6 @@ class DependentDropDown
     do @register_events     
 
   register_events: ->
-    console.log "in register", @parentSelect
     @parentSelect.change @getJsonForChildSelect
   
   url: ->

@@ -25,5 +25,10 @@ module ApplicationHelper
     end
   end
 
+def country_options_for_select(selected, opts)
+  countries = Carmen::Country.all
+  #courtesy of carmen-rails gem
+  region_options_for_select(countries, selected, opts)
+end
 
 end

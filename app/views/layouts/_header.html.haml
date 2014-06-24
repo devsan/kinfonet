@@ -61,7 +61,8 @@
           - else
             %li.right= link_to "Sign out", sign_out_path, class: "btn signout-btn"
             %li.right= link_to "Settings", edit_user_path(current_user)
-            %li.right= link_to "Profile", current_user
+            %li.right= link_to "Edit Profile", edit_profile_path(current_user)
+            %li.right= link_to "Profile", profile_path(current_user)
       / /.navbar-collapse
 
             

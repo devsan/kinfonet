@@ -10,25 +10,36 @@ class UsersController < ApplicationController
 
   def edit
     @user.build_address unless @user.address.present?
+    @states = @user.country_code ? find_states(@user.country_code) : []
   end
 
   def update
     @avatar_url_was = @user.avatar.url(:thumb)
     if @user.update(user_params)
-      flash[:notice] = "Profile updated."
+      flash[:notice] = "Settings updated."
       # Sign in the user bypassing validation  
       sign_in @user, bypass: true if params[:user][:password].present?
       redirect_to @user
     else
-     #paperclip is producing duplicate error messages ....
-      if @user.errors.include?(:avatar)
-        @user.errors.messages.except!(:avatar_content_type,:avatar_file_name, :avatar_file_size)
-      end
       render 'edit'
     end
   end
 
+  def get_states
+    #@states = params[:country_code] ? find_states(params[:country_code]) : []
+    find_states(params[:country_code])
+    respond_to do |format|
+      format.json { render json: @states.to_json }
+    end
+  end
+
   private
+
+  def find_states(country_code)
+      country = Carmen::Country.coded(country_code)
+      @states = country.subregions.map {|state| [state.name, state.code]}.sort
+  end
+  
   def find_user
     @user = User.find(params[:id])
   rescue ActiveRecord::RecordNotFound
@@ -36,14 +47,15 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
-  def user_params  
+  def user_params
+    #raise params[:user].inspect
     #devise validation wont let us pass in an empty password
     if !params[:user][:password].present?
       params[:user].delete(:password)
     end
     params.require(:user).permit( 
-            :fname, :lname, :public_comment, :email, 
-            :password, :feedback, :avatar, :delete_avatar, 
+            :email, 
+            :password, :feedback,
             address_attributes: [ :city, :state_code, :country_code, :zip])
   end
 

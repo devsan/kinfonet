@@ -199,6 +199,18 @@ p.hint {
   width: 100%;
 }
 
+select, textarea {
+  font-size: 90%;
+}
+
+// .carmen select {
+//   width: 100%;
+// }
+
+textarea {
+  min-height: 150px;
+}
+
 input[type='text'], 
 textarea, select, .uneditable-input {
   margin: 0.1em 0;

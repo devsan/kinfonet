@@ -1,0 +1,41 @@
+-provide(:title,"Edit Profile")
+.row
+  .col-md-8.col-md-offset-2
+    .white-well
+      .row
+        .col-sm-6.col-sm-offset-3
+          %h2.centered Update Your Profile
+      .row
+        .col-sm-8.col-sm-offset-2
+          = form_for @user, url: profile_path(@user), html: { multipart: true } do |f|
+            = render 'shared/error_messages', object: f.object
+            .form-group
+              = f.label :fname, "First Name"
+              = f.text_field :fname, class: "form-control"
+            .form-group
+              = f.label :lname do 
+                Last Name
+                %span.hint (only first intitial is visible on your profile )
+              = f.text_field :lname, class: "form-control"
+            .form-group.clearfix
+              .current-avatar
+                -if @user.try(:errors) && @user.errors.include?(:avatar) 
+                  = image_tag @avatar_url_was, class: "img-responsive"
+                -else
+                  = image_tag @user.avatar.url(:thumb), class: "img-responsive"
+                %span Current Picture
+              .upload-avatar
+                = f.label :avatar, "Change Profile Picture", class: "control-label"
+                = f.file_field :avatar, class: "form-control"
+                - if @user.avatar.present? && !@user.errors.include?(:avatar)
+                  %hr.spacer5 
+                  .checkbox
+                    = f.label :delete_avatar do
+                      = f.check_box :delete_avatar
+                      Delete Avatar
+            .form-group
+              = f.label :public_comment, "About You"
+              = f.text_area :public_comment,  placeholder: "Anything thoughts you'd like to share ... ", class: "form-control"
+            .form-actions
+              = f.submit "Save Changes", class: "btn btn-submit"
+

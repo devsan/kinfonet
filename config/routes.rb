@@ -6,11 +6,19 @@ devise_for :users, :controllers => { :registrations => "registrations", :session
   get "sign_out", :to => 'sessions#destroy'
   get "sign_in", :to => 'sessions#new'
  end
- 
- resources :users
+
+ resources :users do
+  collection do
+    get :get_states
+  end
+ end 
+ resources :profiles, only: [:show, :edit, :update]
  resources :classifieds
  resources :quotes, only: [:index, :show]
   
+
+ #get "get_states", :to => "users#get_states"
+
  namespace :admin do
   resources :quotes  
  end

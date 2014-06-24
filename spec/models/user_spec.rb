@@ -36,11 +36,12 @@ describe User do
   
   it { should respond_to(:fname) }
   it { should respond_to(:lname) }
+  it { should respond_to(:public_comment) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
   it { should respond_to(:feedback) }
+  it { should respond_to(:avatar) }
   it { should respond_to(:admin) }
-
 
 
   #associations

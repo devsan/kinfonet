@@ -15,5 +15,33 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require turbolinks
-//= require_tree .
+//= require app
+//=# require_tree .
+//= require_tree ./lib
+//= require_tree ./controllers
+
+//This can be set up right inside the application manifest file because code added here is executed <em>after</em> all other compiled code.
+
+  App.ready = function() {
+    var $body = $("body");
+    var controller = $body.data("controller").replace(/\//g, "_") + 'Controller';
+    var action = $body.data("action");
+    console.log("in edit action?", action)
+
+    var activeController = App[controller];
+
+    if (activeController !== undefined) {
+      if ($.isFunction(activeController.init)) {
+        activeController.init();
+      }
+
+      if ($.isFunction(activeController[action])) {
+        console.log("in edit action?", action)
+        activeController[action]();
+      }
+    }
+  };
+
+$(function() { App.ready() });
+$(document).on('page:load', App.ready);
 

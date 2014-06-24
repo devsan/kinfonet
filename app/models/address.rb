@@ -20,6 +20,6 @@
 class Address < ActiveRecord::Base
   belongs_to :addressable, polymorphic: true
 
-  validates :country_code, presence: true
+  #validates :country_code, presence: true
   #validates :zip, presence: true
 end

@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   has_one :address, as: :addressable, dependent: :destroy
   before_save :strip_name_fields
   before_save :delete_avatar!, if: :delete_avatar?
+  delegate :address1, :address2, :city, :state_code, :country_code, :zip, :lat, :lng, :to => :address
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -58,7 +59,7 @@ class User < ActiveRecord::Base
   #                           :message => "image size is too big; maximum size is 100 kb."
 
   validates_attachment_size :avatar, 
-                            :less_than => 50.kilobytes,
+                            :less_than => 250.kilobytes,
                             :message => "Image size is larger that the maximum allowed (100 kilobytes)"
   
   validates :fname, presence: true

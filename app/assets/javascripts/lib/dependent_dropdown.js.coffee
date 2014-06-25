@@ -24,7 +24,7 @@ class DependentDropDown
       cache: false
       data:
         country_code: @parentSelect.val()
-      success: (data) =>
+      success: (data) ->
         $select.empty()
         unless $.isEmptyObject data 
           $.each data, (key, value) ->

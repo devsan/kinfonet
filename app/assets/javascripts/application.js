@@ -26,7 +26,6 @@
     var $body = $("body");
     var controller = $body.data("controller").replace(/\//g, "_") + 'Controller';
     var action = $body.data("action");
-    console.log("in edit action?", action)
 
     var activeController = App[controller];
 

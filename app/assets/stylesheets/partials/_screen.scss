@@ -1,3 +1,20 @@
+/* external web fonts
+--------------------------------------------- */
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+@import url("http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700");
+
+/* variables
+--------------------------------------------- */
+$OpenSans: 'Open Sans', 'Helvetica Neue',  Helvetica,  Arial,  sans-serif;
+$DroidSerif: "Droid Serif", Georgia, 'Times New Roman', Times, serif;
+$HelveticaSans: 'Helvetica Neue',  Helvetica,  Arial,  sans-serif;
+$GeorgiaSerif: Georgia, 'Times New Roman', Times, serif;
+
+/*http://www.flatuicolorpicker.com/
+--------------------------------------------- */
+$Valencia: #D64541;
+
+
 /* main styles
 --------------------------------------------- */
 html {
@@ -76,27 +93,38 @@ header {
     clear: both;
     background:  transparent image-url("q_left.png") 1% 15% no-repeat;
     p {
-      color: #414141;
-      font-family: $font-family-serif;
+      color: #222;
+      font-family: $DroidSerif;
       line-height: 1.4;
       padding: 10px 40px 5px;
       background: transparent image-url("q_right.png") 99% 85% no-repeat; } }
+  //The + selector will apply style to footer directly following div only.
   .quote-of-the-day + footer {
-    div.small {
-      color: $muted-text; } }
+    a {
+      color: #222;
+      transition: all 0.25s ease-in-out;
+      font-family: $DroidSerif;
+
+    } }
 }
 
-/* nav styles
+/* main menu
 --------------------------------------------- */
 .navbar {
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
 
 .navbar-default {
-  background-color: $primary-color1;
+  background-color: $Valencia;
   .navbar-nav { width: 100%;
     li a {
-      color: #ffffff; }
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.25s ease-in-out;
+    }
    }
   
   .navbar-toggle {
@@ -112,7 +140,7 @@ header {
   button.navbar-toggle-text {
     color: #fff;
     float: left;
-    border-color: darken($primary-color5, 50%);
+    border-color: darken($Valencia, 50%);
     margin: 10px 0 0 15px;
     padding: 5px 15px 5px 15px;
     border-color: $primary-color3;
@@ -120,27 +148,29 @@ header {
     color: #777; }
 }
 
-.navbar-nav > li > a.btn {
-  text-align: left;
+
+/* user links
+--------------------------------------------- */
+
+ul.user-links {
+  margin: 0 0 40px;
+  li {
+    border-right: 1px solid #777;
+    padding: 0 8px;
+    line-height: 1;
+  }
+  li.last {
+    border: none;
+    margin: 0;
+  }
+  li a {
+    color: #000;
+    font-family: $HelveticaSans;
+    font-size: $font-size-small;
+    transition: all 0.25s ease-in-out;
+  }
 }
 
-.navbar-default .navbar-nav > li> a.btn-sign-in {
-  margin: 10px 0 0 15px;
-  padding: 5px 15px 5px 15px;
-  border-color: $primary-color3;
-  background: #fff;
-  color: #777;
-}
-.navbar-default .navbar-nav > li > a.btn-sign-up {
-   margin: 10px 0 0 15px;
-   padding: 5px 15px 5px 15px;
-   border-color: darken($primary-color5, 50%);
-   background: $primary-color5;
-   color: $primary-color1;
-   &:hover {
-    background: #ffffff;
-    color: #777; }
-}
 
 /*
  * Forms
@@ -177,7 +207,7 @@ label {
 }
 
 span.hint {
-  font-family: $font-family-serif;
+  font-family: $GeorgiaSerif;
   font-style: italic;
   font-size: $font-size-small;
   font-weight: normal; 
@@ -222,7 +252,7 @@ textarea, select, .uneditable-input {
 
 .form-group span.help {
   display: block;
-  font-family: $font-family-serif;
+  font-family: $GeorgiaSerif;
   font-style: italic;
   font-size: $font-size-small; 
 }
@@ -257,6 +287,91 @@ textarea, select, .uneditable-input {
    }
  }
 
+/* static-pages
+ ---------------------------------------------  */
+/* home */
+
+.banner {
+  position: relative;
+  p.copy {
+    font-family: $DroidSerif;
+    font-size: 18px;
+    line-height: 27px;
+    font-style: italic;
+    padding: 100px 20px 35px 20px;
+  }
+  p.cite {
+    position: absolute;
+    right: -150px;
+    bottom: 0;
+    margin: 0;
+  }
+}
+
+.heading-title {
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 16px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.widget {
+  //border: 1px solid #777;
+  //background: #59ABE3;
+  .heading-title {
+    font-size: 14px;
+  }
+  p.sub-heading {
+    color: #22313F;
+    width: 80%;
+    margin: 0 auto 10px;;
+  }
+  .bottom-container {
+    padding-bottom: 30px;
+    //temp
+    img {min-height: 233px;}
+    .copy-container {
+      background: #fff;
+      height: 235px;
+      margin: -20px auto 0;
+      position: relative;
+      text-align: center;
+      width: 80%;
+      .copy {
+        font-family: $GeorgiaSerif;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 35px 10px 18px;
+      }
+    }
+  }
+}
+
+.widget.community {
+  .heading-title {
+    color: #3498DB;
+  }
+  .bottom-container {
+    background: #59ABE3; 
+      a.community-btn {
+        @include button-variant(#ffffff, #2574A9, #2574A9);
+      }
+  } 
+}
+
+.widget.events {
+  .heading-title {
+    color: #F39C12;
+  }
+  .bottom-container {
+    background: #F39C12;
+      a.events-btn {
+        @include button-variant(#ffffff, #F27935, #F27935);
+      }
+  } 
+}
 /* search
  ---------------------------------------------  */
 .search-metadata {

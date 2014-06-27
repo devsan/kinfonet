@@ -1,8 +1,71 @@
+-#http://www.stokesentinel.co.uk/get-involved.html
 - provide(:title, 'Home')
+.row.banner
+  .col-sm-6
+    = image_tag "tmp/K_homepage.png", class: "img-responsive"
+    %p.cite
+      J. Krishnamurti
+      %br/
+      (1895 - 1986)
+  .col-sm-6
+    %p.copy Truth cannot be brought down, rather the individual must make the effort to ascend to it. You cannot bring the mountain-top to the valley. If you would attain to the mountain-top you must pass through the valley, climb the steeps, unafraid of the dangerous precipices.
+
+%hr.spacer40
 .row
-  .main.col-md-9
-    %h1 Kinfonet
-    %p
-      This is the home page for the
-      =link_to "Krishnamurti Information Network", root_path
-  .sidebar.col-md-3
+  .col-sm-4
+    .widget.community
+      .header-container
+        .heading-title.text-center
+          Community
+        %p.sub-heading.text-center
+          Discuss. Arrange a meetup. Schedule a chat. Make new friends.
+      .bottom-container
+        =image_tag "https://www.madewithcode.com/home/A812944083180C183F4C7F75EE4E3BAD.cache.jpg", class: "img-responsive"
+        .copy-container
+          .copy
+            It's not easy finding people with
+            %br
+            whom you can be alone together.
+            %br 
+            Join our community and help us make this happen.
+
+          = link_to "Browse Community", "#", class: "btn community-btn"
+
+  .col-sm-4
+    .widget.events
+      .header-container
+        .heading-title.text-center
+          Events
+        %p.sub-heading.text-center
+          Meetings. Dialogue Groups. Retreats. Gatherings.
+          Local and worldwide.
+        .bottom-container
+          =image_tag "http://www.kfa.org/cmsimages/TEP_group.jpg", class: "img-responsive"
+          .copy-container
+            .copy
+              It's not easy finding people with
+              %br
+              whom you can be alone together.
+              %br 
+              Join our community and help us make this happen.
+            = link_to "Find an Event Near You", "#", class: "btn events-btn"
+  .col-sm-4
+    .widget.community
+      .header-container
+        .heading-title.text-center
+          Places
+        %p.sub-heading.text-center
+          Retreat Centers, Guest Houses and Official Krishnamurti Foundations.
+        .bottom-container
+          =image_tag "http://www.kfa.org/cmsimages/TEP_group.jpg", class: "img-responsive"
+          .copy-container
+            .copy
+              It's not easy finding people with
+              %br
+              whom you can be alone together.
+              %br 
+              Join our community and help us make this happen.
+            = link_to "Browse Places", "#", class: "btn community-btn"
+
+
+

@@ -1,3 +1,10 @@
+body {
+  font-family: $OpenSans;
+  font-size: 12px/ 1.3em;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin: 0 0 3px;
   line-height: 1;

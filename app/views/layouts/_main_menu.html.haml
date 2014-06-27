@@ -1,0 +1,58 @@
+.container
+  %nav.navbar.navbar-default{role: "navigation"}
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle-text.btn.btn-primary.btn-xs.visible-xs{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse"}
+        %span Navigation Menu
+        %span.glyphicon.glyphicon-chevron-down{style: "top: 3px;"}
+      %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      
+    / Collect the nav links, forms, and other content for toggling
+    .collapse.navbar-collapse.navbar-ex1-collapse
+      %ul.nav.navbar-nav
+        %li
+          - if user_signed_in? && current_user.admin?
+            =link_to "Quotes", admin_quotes_path
+          -else
+            =link_to "Home", "#"  
+        %li
+          %a{href: "#"} Projects
+        %li
+          %a{href: "#"} Places
+        %li
+          %a{href: "#"} Resources
+        %li
+          %a{href: "#"} Events
+        %li
+          %a{href: "#"} Publications
+        %li
+          %a{href: "#"} Bulletin Board
+        
+        %li.dropdown>
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            Krishnamurti
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{href: "#"} Biographical Excerpts
+            %li
+              %a{href: "#"} The Message
+            %li
+              %a{href: "#"} Remembering Krishnamurti
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            Community
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{href: "#"} People
+            %li
+              %a{href: "#"} Discussion Forums
+            %li
+              %a{href: "#"} Chat Rooms
+            %li
+              %a{href: "#"} Private Groups

@@ -40,18 +40,18 @@
 //   }
 // }
 
-@media only screen and (max-device-width:480px){
-    /* styles for mobile browsers smaller than 480px; (iPhone) */
-  .nav.navbar-nav >li.right .btn {
-     text-align: left;
-  }
-}
+// @media only screen and (max-device-width:480px){
+//     /* styles for mobile browsers smaller than 480px; (iPhone) */
+//   .nav.navbar-nav >li.right .btn {
+//      text-align: left;
+//   }
+// }
 
-@media (min-width: $screen-sm) {
-  .nav.navbar-nav >li.right {
-      float: right;
-  }
-}
+// @media (min-width: $screen-sm) {
+//   .nav.navbar-nav >li.right {
+//       float: right;
+//   }
+// }
 
 // @media (min-width: $screen-md) {
 //   .kinfonet-nav .brand a {

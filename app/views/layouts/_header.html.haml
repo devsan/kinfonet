@@ -13,57 +13,6 @@
             .col-xs-6.small= link_to "Krishnamurti Quote of the Day", @quote_of_the_day, class: "plain"
             .col-xs-6.text-right.small= link_to "#{@quote_of_the_day.source_location} | #{@quote_of_the_day.source_detail}", @quote_of_the_day, class: "plain"
 
-    %nav.navbar.navbar-default{role: "navigation"}
-      / Brand and toggle get grouped for better mobile display
-      .navbar-header
-        %button.navbar-toggle-text.btn.btn-primary.btn-xs.visible-xs{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse"}
-          %span Navigation Menu
-          %span.glyphicon.glyphicon-chevron-down{style: "top: 3px;"}
-        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        
-      / Collect the nav links, forms, and other content for toggling
-      .collapse.navbar-collapse.navbar-ex1-collapse
-        %ul.nav.navbar-nav
-          %li
-            - if user_signed_in? && current_user.admin?
-              =link_to "Quotes", admin_quotes_path
-            -else
-              =link_to "Link", "#"
-          %li
-            %a{href: "#"} Link
-          %li
-            %a{href: "#"} Link
-          %li
-            %a{href: "#"} Link
-          %li.dropdown
-            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-              Dropdown
-              %b.caret
-            %ul.dropdown-menu
-              %li
-                %a{href: "#"} Action
-              %li
-                %a{href: "#"} Another action
-              %li
-                %a{href: "#"} Something else here
-              %li
-                %a{href: "#"} Separated link
-              %li
-                %a{href: "#"} One more separated link
-          - unless user_signed_in?
-            %li.right<
-              = link_to "Sign in", sign_in_path, class: "btn btn-sign-in"
-            %li.right= link_to "Join Kinfonet", new_user_registration_path, class: "btn btn-sign-up"     
-          - else
-            %li.right= link_to "Sign out", sign_out_path, class: "btn signout-btn"
-            %li.right= link_to "Settings", edit_user_path(current_user)
-            %li.right= link_to "Edit Profile", edit_profile_path(current_user)
-            %li.right= link_to "Profile", profile_path(current_user)
-      / /.navbar-collapse
 
             
 

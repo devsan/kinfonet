@@ -19,7 +19,8 @@ gem 'geokit-rails'
 
 gem 'quiet_assets', :group => :development
 group :development, :test do
-  gem 'rspec-rails', '~> 2.13.1'
+  #gem 'rspec-rails', '~> 2.13.2'
+  gem 'rspec-rails','~> 2.14.0.rc1'
   gem 'spork-rails', '4.0.0'
   gem 'childprocess', '~> 0.3.6'
   gem 'annotate'

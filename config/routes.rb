@@ -1,5 +1,6 @@
 Kinfonet4::Application.routes.draw do
 
+#localhost:3000/rails/info
 devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions"}
  devise_scope :user do
   get "sign_up", :to => "registrations#new"
@@ -20,6 +21,7 @@ devise_for :users, :controllers => { :registrations => "registrations", :session
  #get "get_states", :to => "users#get_states"
 
  namespace :admin do
+  root 'dashboard#index'
   resources :quotes  
  end
 

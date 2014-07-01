@@ -1,0 +1,10 @@
+= form_for [:admin, @question] do |f|
+  = render 'shared/error_messages', object: f.object
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = label_tag nil do 
+      = f.check_box :enabled
+      Approved
+  = f.submit submit_text, class: "btn btn-submit"

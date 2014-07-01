@@ -191,6 +191,26 @@ form {
   margin-bottom: 30px;
 }
 
+.form-group.clearfix div.left,
+.form-group.clearfix div.right
+ {
+  width: 100%;
+  margin: 0;
+}
+
+@media (min-width: $screen-sm) {
+  .form-group.clearfix div.left {
+    float: left;
+    width: 48%;
+    margin-right:4%; 
+  }
+
+  .form-group.clearfix div.right {
+    float: right;
+    width: 48%;; 
+  }
+}
+
 .btn-submit {
   background: $btn-submit;
   color: white;

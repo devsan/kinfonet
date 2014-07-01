@@ -22,7 +22,8 @@ devise_for :users, :controllers => { :registrations => "registrations", :session
 
  namespace :admin do
   root 'dashboard#index'
-  resources :quotes  
+  resources :quotes
+  resources :questions  
  end
 
   #get "static_pages/home"

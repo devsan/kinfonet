@@ -17,6 +17,11 @@
 //= require turbolinks
 //= require app
 //=# require_tree .
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone/app
 //= require_tree ./lib
 //= require_tree ./controllers
 
@@ -35,7 +40,6 @@
       }
 
       if ($.isFunction(activeController[action])) {
-        console.log("in edit action?", action)
         activeController[action]();
       }
     }

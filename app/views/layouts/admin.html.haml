@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %title= full_title(yield(:title))
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => false
+    = csrf_meta_tags
+  %body{:id => "app-#{controller_name}-#{action_name}", "data-controller" => "#{controller_path}", "data-action" => "#{action_name}"}
+  = yield

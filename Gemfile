@@ -16,6 +16,7 @@ gem 'pg_search'
 gem "paperclip"
 gem 'carmen-rails', '~> 1.0.0'
 gem 'geokit-rails'
+gem 'rails-backbone', '~> 0.7.2'
 
 gem 'quiet_assets', :group => :development
 group :development, :test do

@@ -1,7 +1,7 @@
 .container
   %ul.user-links.list-inline.pull-right
     - unless user_signed_in?
-      %l>= link_to "Create an account", new_user_registration_path
+      %li>= link_to "Create an account", new_user_registration_path
       %li.last>= link_to "Sign in", sign_in_path
     - else
       %li>= link_to "Settings", edit_user_path(current_user)

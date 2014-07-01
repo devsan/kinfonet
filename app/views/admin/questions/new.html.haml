@@ -1,0 +1,8 @@
+-provide(:title, "New Question")
+.row
+  .col-md-8.col-md-offset-2
+    .white-well
+      .row
+        .col-md-6.col-md-offset-3
+          %h2.title.text-center New Question
+      = render "form", { :submit_text => "Create Question" }

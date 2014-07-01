@@ -3,28 +3,22 @@ require 'spec_helper'
 describe "Question pages" do
   subject { page }
 
-  describe "#Create" do
-    let(:user) { FactoryGirl.create(:user) }
+  describe "Create Action" do 
     let(:admin) { FactoryGirl.create(:admin) }
-
-    context "before signing in" do
-      before { visit admin_root_path }
-      
-      it "should redirect to sign in page" do
-        expect(current_path).to eq(new_user_session_path)
-      end
-      it { should have_error_message(/You need to sign in/) } 
+    before do
+      sign_in(admin, no_capybara: true)
+      visit new_admin_question_path
     end
 
-    context "signed in a non-admin user" do
-      before do
-        sign_in user, no_capybara: true
-        get admin_root_path
-      end
-     specify { expect(response).to redirect_to(root_url) }
-
+    it { should have_selector("h2", text: "New Question") } 
+    it { should have_title(full_title("New Question")) }
+ 
+    context "with invalid information" do
+      let(:submit) { "Create Question" }
+      it "should not create a Question" do
+        expect { click_button submit }.not_to change(Quote, :count)
+      end  
     end
-    context 
   end
   
 end

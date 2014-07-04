@@ -2,8 +2,16 @@
 %html
   %head
     %title= full_title(yield(:title))
-    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => false
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => false
+    = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-  %body{:id => "app-#{controller_name}-#{action_name}", "data-controller" => "#{controller_path}", "data-action" => "#{action_name}"}
-  = yield
+  %body{:id => "admin-#{controller_name}-#{action_name}", "data-controller" => "#{controller_path}", "data-action" => "#{action_name}"}
+    = render "admin_header"
+    .container-fluid#body-content
+      = yield
+    .container-fluid
+      %footer
+        hello
+  
+
+

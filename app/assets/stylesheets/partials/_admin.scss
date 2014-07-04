@@ -1,0 +1,33 @@
+body#admin-dashboard-index {
+  
+  /* Move down content because we have a fixed navbar that is 50px tall #0b2644 #2a97c3*/
+  padding-top: 60px;
+
+  .navbar-inverse {
+    background-color: #0b2644;
+    border-color: #080808;
+  }
+
+  .navbar-inverse .navbar-brand {
+    color: #fff;;
+  }
+
+  .navbar-inverse .navbar-nav>li>a {
+    color: #2a97c3;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: white;
+    background-color: transparent;
+  }
+
+  footer {
+    background: lighten(#E67E22, 40%);
+    width: 30px;
+    height: 30px;
+  }
+}

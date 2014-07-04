@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require handlebars.runtime
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require turbolinks
@@ -47,4 +48,5 @@
 
 $(function() { App.ready() });
 $(document).on('page:load', App.ready);
+    
 

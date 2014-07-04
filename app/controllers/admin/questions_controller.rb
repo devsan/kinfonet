@@ -1,5 +1,10 @@
 class Admin::QuestionsController < Admin::BaseController
-
+  respond_to :html, :json
+  
+  def index
+    respond_with(Question.all)
+  end
+  
   def new
     @question = Question.new
   end

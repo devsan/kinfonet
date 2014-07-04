@@ -2,7 +2,8 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     #make_users
-    make_quotes
+    #make_quotes
+    make_questions
   end
 end
 
@@ -37,5 +38,9 @@ def make_quotes
   end
 end
 
-
-
+def make_questions
+  10.times do |n|
+    name = Faker::Lorem.sentence(rand(10..20))
+    Question.create!(name: name, enabled: true)
+  end
+end

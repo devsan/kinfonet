@@ -7,7 +7,7 @@
     = csrf_meta_tags
   %body{:id => "admin-#{controller_name}-#{action_name}", "data-controller" => "#{controller_path}", "data-action" => "#{action_name}"}
     = render "admin_header"
-    .container-fluid#body-content
+    .container-fluid#js-content-view-wrapper
       = yield
     .container-fluid
       %footer

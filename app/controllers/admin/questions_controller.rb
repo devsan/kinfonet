@@ -2,6 +2,7 @@ class Admin::QuestionsController < Admin::BaseController
   respond_to :html, :json
   
   def index
+    #logger.info Question.all.to_json
     respond_with(Question.all)
   end
   

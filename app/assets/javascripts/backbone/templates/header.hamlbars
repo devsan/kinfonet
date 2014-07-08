@@ -1,8 +1,4 @@
-%ul.nav.navbar-nav.navbar-right
-  %li
-    %a.active{href: "#"} Dashboard
-  %li
-    %a{href: "#"} Link 1
-
-
-
+%li
+  %a.active{href: "#"} Dashboard
+%li
+  %a{href: "#"} Link 1

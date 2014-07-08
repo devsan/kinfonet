@@ -1,10 +1,8 @@
 class App.Views.Header extends Backbone.View
-
-  #className: "header"
-  id: "main-menu"
+  tagName: "ul"
+  className: "nav navbar-nav navbar-right"
   template: HandlebarsTemplates["header"]
 
   render: ->
-    #console.log @template
     @$el.html(@template())
     @

@@ -29,6 +29,9 @@ Spork.prefork do
   ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
   ActiveRecord::Migration.maintain_test_schema!
 
+  #http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3
+  #https://relishapp.com/rspec/
+
   RSpec.configure do |config|
 
     # ## Mock Framework

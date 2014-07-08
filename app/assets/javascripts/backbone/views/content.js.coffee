@@ -5,17 +5,15 @@ class App.Views.Content extends Backbone.View
 
   render: ->
     @$el.html(@template())
-    #@renderEmptyView()
-    @renderQuestionsView()
     @
 
-  renderQuestionsView: ->
-    console.log "in renderQuestionsView"
-    view = new App.Views.Questions()
-    @$el.find(".main").html(view.render().el)
+  renderNewMainView: (new_main_view) ->
+    @loadCurrentView(new_main_view)
+    @$('.main').html(@current_view.render().el)
+    @
 
-  # renderEmptyView: ->
-  #   console.log "in renderEmptyView"
-  #   view = new App.Views.EmptyView()
-  #   @$el.find(".main").html(view.render().el)
+  loadCurrentView: (new_main_view) ->
+    @currentMainView(new_main_view).remove if @currentMainView
+    @current_view = new_main_view
+
 

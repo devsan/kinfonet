@@ -31,6 +31,7 @@ end
 group :test do
   gem 'selenium-webdriver', '~> 2.35.1'
   gem 'capybara', '~> 2.1.0'
+  gem 'capybara-webkit'
   gem 'factory_girl_rails', '~> 4.2.0'
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
   gem 'minitest' #https://github.com/rspec/rspec-rails/issues/758

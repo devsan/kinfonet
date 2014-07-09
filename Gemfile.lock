@@ -61,6 +61,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.2.0)
+      capybara (>= 2.0.2, < 2.4.0)
+      json
     carmen (1.0.1)
       unicode_utils (~> 1.4.0)
     carmen-rails (1.0.1)
@@ -248,6 +251,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.1.0)
   bootstrap-will_paginate (~> 0.0.9)
   capybara (~> 2.1.0)
+  capybara-webkit
   carmen-rails (~> 1.0.0)
   childprocess (~> 0.3.6)
   coffee-rails (~> 4.0.0)

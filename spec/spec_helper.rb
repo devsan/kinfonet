@@ -2,6 +2,9 @@ require 'rubygems'
 require 'spork'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
+require 'capybara/rspec'
+require 'capybara/webkit/matchers'
+Capybara.javascript_driver = :webkit
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
@@ -75,6 +78,7 @@ Spork.prefork do
     #     --seed 1234
     config.order = "random"
     config.include Capybara::DSL
+    config.include(Capybara::Webkit::RspecMatchers, :type => :feature)
    end
 end
 

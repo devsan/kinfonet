@@ -1,5 +1,6 @@
 Kinfonet4::Application.routes.draw do
 
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 #localhost:3000/rails/info
 devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions"}
  devise_scope :user do

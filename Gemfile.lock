@@ -121,6 +121,13 @@ GEM
       tilt
     hike (1.2.3)
     i18n (0.6.9)
+    jasmine (2.0.2)
+      jasmine-core (~> 2.0.0)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.0.0)
+    jasmine-jquery-rails (2.0.3)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -148,6 +155,7 @@ GEM
       activerecord (>= 3.1)
       activesupport (>= 3.1)
       arel
+    phantomjs (1.9.7.1)
     polyglot (0.3.5)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
@@ -262,6 +270,8 @@ DEPENDENCIES
   geokit-rails
   haml-rails
   handlebars_assets
+  jasmine
+  jasmine-jquery-rails
   jbuilder (~> 1.2)
   jquery-rails
   minitest

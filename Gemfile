@@ -20,15 +20,18 @@ gem 'rails-backbone', github: 'codebrew/backbone-rails'
 gem 'handlebars_assets'
 
 gem 'quiet_assets', :group => :development
+
 group :development, :test do
-  #gem 'rspec-rails', '~> 2.13.2'
   gem 'rspec-rails','~> 2.14.0.rc1'
+  gem 'jasmine'
+  gem 'jasmine-jquery-rails'
   gem 'spork-rails', '4.0.0'
   gem 'childprocess', '~> 0.3.6'
   gem 'annotate'
 end
 
 group :test do
+
   gem 'selenium-webdriver', '~> 2.35.1'
   gem 'capybara', '~> 2.1.0'
   gem 'capybara-webkit'

@@ -30,7 +30,9 @@
 
   App.ready = function() {
     var $body = $("body");
-    var controller = $body.data("controller").replace(/\//g, "_") + 'Controller';
+    if ($body.data("controller")) {
+      var controller = $body.data("controller").replace(/\//g, "_") + 'Controller';
+    }
     var action = $body.data("action");
 
     var activeController = App[controller];

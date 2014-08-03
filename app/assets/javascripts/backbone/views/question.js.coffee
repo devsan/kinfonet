@@ -1,6 +1,6 @@
 class App.Views.Question extends Backbone.View
 
-  tagName: "li" 
+  tagName: "li"
   template: HandlebarsTemplates['question']
 
   render: ->

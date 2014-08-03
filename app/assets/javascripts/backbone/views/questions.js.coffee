@@ -1,5 +1,6 @@
 class App.Views.Questions extends Backbone.View
 
+  className: 'js-content-view-wrapper main'
   template: HandlebarsTemplates['questions']
 
   initialize: ->

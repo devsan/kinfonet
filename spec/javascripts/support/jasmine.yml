@@ -1,4 +1,13 @@
 #http://jasmine.github.io/2.0/introduction.html
+#rake jasmine  -> starts jasmine on browser
+
+#http://localhost:8888/
+# runs files in spec/javascripts
+#rake jasmine:ci  -> runs on console
+
+#http://sinonjs.org/
+#https://github.com/froots/jasmine-sinon
+#
 # src_files
 #
 # Return an array of filepaths relative to src_dir to include before jasmine specs.
@@ -12,6 +21,7 @@
 #   - dist/**/*.js
 #
 src_files:
+  - spec/javascripts/support/*.js
   - assets/application.js
   - assets/jasmine-jquery.js
 

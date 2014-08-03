@@ -6,8 +6,8 @@ class App.Routers.AdminMainRouter extends Backbone.Router
 
   initialize: ->
     #console.log "in main router"
-    @headerView = new App.Views.Header()
-    @contentView = new App.Views.Content()
+    @headerView = new App.Views.Header
+    @contentView = new App.Views.Content
 
   index: ->
     #console.log "Hello from router #index"
@@ -17,7 +17,7 @@ class App.Routers.AdminMainRouter extends Backbone.Router
   question: ->
     #console.log "Hello from router #question"
     $("#main-menu").html(@headerView.render().el)
-    questionsMainView = new App.Views.Questions(collection: new App.Collections.Questions())
+    questionsMainView = new App.Views.Questions(collection: new App.Collections.Questions)
     mainContentView = @contentView.render()
                       .renderNewMainView(questionsMainView)
     $('#js-content-view-wrapper').html(mainContentView.el)

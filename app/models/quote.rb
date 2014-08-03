@@ -18,13 +18,13 @@
 
 class Quote < ActiveRecord::Base
   include PgSearch
-  include ForToday #concern: daily quote creation 
-  
-  validates :content, 
+  include ForToday #concern: daily quote creation
+
+  validates :content,
             :source_location, :source_detail, presence: true
-  validates :phrase,  presence:true, 
+  validates :phrase,  presence:true,
+
                       uniqueness: { case_sensitive: false }
-  
   default_scope { order("quotes.display_date DESC NULLS LAST") }
 
 

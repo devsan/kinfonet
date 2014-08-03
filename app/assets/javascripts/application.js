@@ -50,5 +50,3 @@
 
 $(function() { App.ready() });
 $(document).on('page:load', App.ready);
-    
-

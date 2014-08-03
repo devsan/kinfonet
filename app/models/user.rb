@@ -39,33 +39,33 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   #https://devcenter.heroku.com/articles/paperclip-s3
-  has_attached_file :avatar, 
-                    :styles => { medium: "140x140#", thumb: "100x100#", mini: "24x24#" }, 
+  has_attached_file :avatar,
+                    :styles => { medium: "140x140#", thumb: "100x100#", mini: "24x24#" },
                     :default_url => ActionController::Base.helpers.asset_path('assets/default_avatar_:style.png'),
                     :path => ":rails_root/public/system/:class/:attachment/:id/:style/:filename",
                     :url => "/system/:class/:attachment/:id/:style/:filename"
 
-  validates_attachment_content_type :avatar, 
+  validates_attachment_content_type :avatar,
                                     :content_type => /\Aimage\/.*\Z/,
                                     :message => "is not a valid - it needs to be a gif, png or jpg",
                                     :allow_blank => true
-  validates_attachment_file_name  :avatar, 
+  validates_attachment_file_name  :avatar,
                                   :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/],
                                   :message => "image file name is invalid - should have a gif, png or jpg extension",
                                   :allow_blank => true
-  
-  # validates_attachment_size :avatar, 
+
+  # validates_attachment_size :avatar,
   #                           :less_than => 100.kilobytes,
   #                           :message => "image size is too big; maximum size is 100 kb."
 
-  validates_attachment_size :avatar, 
+  validates_attachment_size :avatar,
                             :less_than => 250.kilobytes,
                             :message => "Image size is larger that the maximum allowed (100 kilobytes)"
-  
+
   validates :fname, presence: true
   validates :fname, length: { maximum: 50 }
 
-  accepts_nested_attributes_for :address, allow_destroy: true, 
+  accepts_nested_attributes_for :address, allow_destroy: true,
                                           reject_if: :all_blank
   attr_accessor :delete_avatar
 
@@ -76,12 +76,12 @@ class User < ActiveRecord::Base
       self.fname
     end
   end
-  
+
   def full_name
     "#{fname} #{lname}"
   end
-  
-  private 
+
+  private
     def strip_name_fields
       self.fname.strip!
       self.lname.strip! if self.lname.present?

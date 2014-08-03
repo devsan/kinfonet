@@ -1,4 +1,4 @@
-# == Schema Information
+
 #
 # Table name: quotes
 #
@@ -19,7 +19,7 @@
 require 'spec_helper'
 
 describe Quote do
-  let(:quote) { FactoryGirl.build(:quote) } 
+  let(:quote) { FactoryGirl.build(:quote) }
   subject { quote }
 
   it { should respond_to(:phrase) }
@@ -38,7 +38,7 @@ describe Quote do
     before { quote.phrase = " "}
     it { should_not be_valid }
   end
-  
+
   describe "when content not present" do
     before { quote.content = " "}
     it { should_not be_valid }
